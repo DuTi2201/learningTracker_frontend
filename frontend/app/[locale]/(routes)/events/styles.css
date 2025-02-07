@@ -1,0 +1,15 @@
+.Schedule-appointment {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.Schedule-appointment:hover {
+  background-color: rgba(66, 165, 245, 0.8);
+}
+
+.MainLayout {
+  background-color: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+

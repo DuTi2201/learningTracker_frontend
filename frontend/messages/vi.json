@@ -1,0 +1,60 @@
+{
+  "common": {
+    "search": "Tìm kiếm...",
+    "language": "Chuyển đổi ngôn ngữ",
+    "theme": "Chuyển đổi giao diện"
+  },
+  "nav": {
+    "dashboard": "Trang chủ",
+    "goals": "Mục tiêu",
+    "events": "Sự kiện",
+    "materials": "Tài liệu",
+    "assignments": "Bài tập"
+  },
+  "theme": {
+    "light": "Sáng",
+    "dark": "Tối",
+    "system": "Hệ thống"
+  },
+  "events": {
+    "title": "Lịch học",
+    "today": "Sự kiện hôm nay",
+    "noEvents": "Không có sự kiện nào hôm nay",
+    "addNew": "Thêm sự kiện mới",
+    "instructor": "Giảng viên"
+  },
+  "materials": {
+    "title": "Tài liệu học tập",
+    "addNew": "Thêm tài liệu mới",
+    "upload": "Tải lên tài liệu mới",
+    "existing": "Tài liệu có sẵn",
+    "name": "Tên tài liệu",
+    "description": "Mô tả",
+    "uploadFile": "Tải lên file",
+    "dropzone": "Click để chọn file hoặc kéo thả file vào đây"
+  },
+  "assignments": {
+    "title": "Danh sách bài tập",
+    "addNew": "Thêm bài tập mới",
+    "deadline": "Hạn nộp",
+    "status": {
+      "not_started": "Chưa bắt đầu",
+      "in_progress": "Đang thực hiện",
+      "completed": "Đã hoàn thành"
+    },
+    "notes": "Ghi chú"
+  },
+  "notifications": {
+    "title": "Thông báo",
+    "markAllAsRead": "Đánh dấu tất cả là đã đọc",
+    "noNotifications": "Không có thông báo nào",
+    "timeAgo": {
+      "seconds": "giây trước",
+      "minutes": "phút trước",
+      "hours": "giờ trước",
+      "days": "ngày trước",
+      "months": "tháng trước",
+      "years": "năm trước"
+    }
+  }
+} 
