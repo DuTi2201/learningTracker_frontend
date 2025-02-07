@@ -1,0 +1,177 @@
+{
+  "common": {
+    "search": "Tìm kiếm...",
+    "language": "Chuyển đổi ngôn ngữ",
+    "theme": "Chuyển đổi giao diện",
+    "edit": "Sửa",
+    "delete": "Xóa",
+    "cancel": "Hủy",
+    "close": "Đóng",
+    "update": "Cập nhật",
+    "create": "Tạo mới"
+  },
+  "nav": {
+    "dashboard": "Trang chủ",
+    "goals": "Mục tiêu",
+    "events": "Sự kiện",
+    "materials": "Tài liệu",
+    "assignments": "Bài tập"
+  },
+  "theme": {
+    "light": "Sáng",
+    "dark": "Tối",
+    "system": "Hệ thống"
+  },
+  "dashboard": {
+    "totalLessons": "Tổng số bài học",
+    "completedAssignments": "Bài tập đã hoàn thành",
+    "studyHours": "Số giờ học tập",
+    "completedGoals": "Mục tiêu đã đạt",
+    "learningProgress": "Tiến độ học tập",
+    "fromLastWeek": "so với tuần trước"
+  },
+  "goals": {
+    "title": "Mục tiêu học tập",
+    "addNew": "Thêm mục tiêu mới",
+    "edit": "Chỉnh sửa mục tiêu",
+    "searchPlaceholder": "Tìm kiếm mục tiêu...",
+    "deadline": "Thời hạn",
+    "created": "Đã tạo mục tiêu",
+    "createSuccess": "Mục tiêu mới đã được tạo thành công",
+    "updated": "Đã cập nhật mục tiêu",
+    "updateSuccess": "Mục tiêu đã được cập nhật thành công",
+    "deleted": "Đã xóa mục tiêu",
+    "deleteSuccess": "Mục tiêu đã được xóa thành công",
+    "filter": {
+      "all": "Tất cả",
+      "notStarted": "Chưa bắt đầu",
+      "inProgress": "Đang thực hiện",
+      "completed": "Đã hoàn thành"
+    },
+    "status": {
+      "not_started": "Chưa bắt đầu",
+      "in_progress": "Đang thực hiện",
+      "completed": "Đã hoàn thành"
+    },
+    "priority": {
+      "high": "Cao",
+      "medium": "Trung bình",
+      "low": "Thấp"
+    },
+    "form": {
+      "title": "Tiêu đề",
+      "titlePlaceholder": "Nhập tiêu đề mục tiêu",
+      "description": "Mô tả",
+      "descriptionPlaceholder": "Nhập mô tả chi tiết",
+      "deadline": "Thời hạn",
+      "priority": "Độ ưu tiên",
+      "selectPriority": "Chọn độ ưu tiên",
+      "status": "Trạng thái",
+      "selectStatus": "Chọn trạng thái"
+    }
+  },
+  "events": {
+    "title": "Lịch học",
+    "today": "Sự kiện hôm nay",
+    "noEvents": "Không có sự kiện nào hôm nay",
+    "addNew": "Thêm sự kiện mới",
+    "edit": "Chỉnh sửa sự kiện",
+    "instructor": "Giảng viên",
+    "created": "Sự kiện đã được tạo",
+    "createSuccess": "Sự kiện mới đã được thêm vào lịch",
+    "updated": "Sự kiện đã được cập nhật",
+    "updateSuccess": "Thông tin sự kiện đã được cập nhật thành công",
+    "deleted": "Sự kiện đã được xóa",
+    "deleteSuccess": "Sự kiện đã được xóa khỏi lịch",
+    "form": {
+      "title": "Tiêu đề",
+      "titlePlaceholder": "Nhập tiêu đề sự kiện",
+      "description": "Mô tả",
+      "descriptionPlaceholder": "Nhập mô tả sự kiện",
+      "startTime": "Thời gian bắt đầu",
+      "endTime": "Thời gian kết thúc",
+      "instructor": "Giảng viên",
+      "instructorPlaceholder": "Nhập tên giảng viên",
+      "formDescription": "Điền thông tin cho sự kiện của bạn"
+    }
+  },
+  "materials": {
+    "title": "Tài liệu học tập",
+    "addNew": "Thêm tài liệu mới",
+    "upload": "Tải lên tài liệu mới",
+    "existing": "Tài liệu có sẵn",
+    "name": "Tên tài liệu",
+    "description": "Mô tả",
+    "uploadFile": "Tải lên file",
+    "dropzone": "Click để chọn file hoặc kéo thả file vào đây",
+    "view": "Xem",
+    "select": "Chọn tài liệu",
+    "selectTitle": "Chọn nội dung bài tập",
+    "namePlaceholder": "Nhập tên tài liệu",
+    "descriptionPlaceholder": "Nhập mô tả tài liệu",
+    "file": "File tài liệu",
+    "uploadAndSelect": "Tải lên và chọn",
+    "saveSelections": "Lưu lựa chọn",
+    "selectionSaved": "Đã lưu lựa chọn",
+    "selectionSavedDescription": "Các tài liệu đã chọn đã được lưu thành công",
+    "uploaded": "Đã tải lên",
+    "uploadSuccess": "Tài liệu mới đã được tải lên thành công",
+    "validation": {
+      "required": "Vui lòng điền đầy đủ thông tin",
+      "titleFileRequired": "Tiêu đề và tài liệu là bắt buộc"
+    }
+  },
+  "assignments": {
+    "title": "Danh sách bài tập",
+    "addNew": "Thêm bài tập mới",
+    "deadline": "Hạn nộp",
+    "notes": "Ghi chú",
+    "materials": "Nội dung bài tập",
+    "noMaterials": "Không có tài liệu để hiển thị",
+    "edit": "Chỉnh sửa bài tập",
+    "created": "Đã thêm bài tập",
+    "createSuccess": "Bài tập mới đã được thêm vào danh sách",
+    "updated": "Đã cập nhật bài tập",
+    "updateSuccess": "Thông tin bài tập đã được cập nhật thành công",
+    "deleted": "Đã xóa bài tập",
+    "deleteSuccess": "Bài tập đã được xóa khỏi danh sách",
+    "status": {
+      "not_started": "Chưa bắt đầu",
+      "in_progress": "Đang thực hiện",
+      "completed": "Đã hoàn thành"
+    },
+    "validation": {
+      "required": "Vui lòng điền đầy đủ thông tin",
+      "titleDeadlineRequired": "Tiêu đề và thời hạn là bắt buộc"
+    },
+    "form": {
+      "title": "Tiêu đề",
+      "titlePlaceholder": "Nhập tiêu đề bài tập",
+      "description": "Mô tả",
+      "descriptionPlaceholder": "Nhập mô tả bài tập",
+      "deadline": "Thời hạn",
+      "status": "Trạng thái",
+      "selectStatus": "Chọn trạng thái",
+      "notes": "Ghi chú",
+      "notesPlaceholder": "Nhập ghi chú (không bắt buộc)",
+      "submit": "Thêm bài tập"
+    },
+    "deleteConfirm": {
+      "title": "Bạn có chắc chắn muốn xóa?",
+      "description": "Hành động này không thể hoàn tác. Bài tập này sẽ bị xóa vĩnh viễn."
+    }
+  },
+  "notifications": {
+    "title": "Thông báo",
+    "markAllAsRead": "Đánh dấu tất cả là đã đọc",
+    "noNotifications": "Không có thông báo nào",
+    "timeAgo": {
+      "seconds": "giây trước",
+      "minutes": "phút trước",
+      "hours": "giờ trước",
+      "days": "ngày trước",
+      "months": "tháng trước",
+      "years": "năm trước"
+    }
+  }
+} 

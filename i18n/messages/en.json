@@ -1,0 +1,177 @@
+{
+  "common": {
+    "search": "Search...",
+    "language": "Switch language",
+    "theme": "Toggle theme",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "close": "Close",
+    "update": "Update",
+    "create": "Create"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "goals": "Goals",
+    "events": "Events",
+    "materials": "Materials",
+    "assignments": "Assignments"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "dashboard": {
+    "totalLessons": "Total Lessons",
+    "completedAssignments": "Completed Assignments",
+    "studyHours": "Study Hours",
+    "completedGoals": "Completed Goals",
+    "learningProgress": "Learning Progress",
+    "fromLastWeek": "from last week"
+  },
+  "goals": {
+    "title": "Learning Goals",
+    "addNew": "Add New Goal",
+    "edit": "Edit Goal",
+    "searchPlaceholder": "Search goals...",
+    "deadline": "Deadline",
+    "created": "Goal Created",
+    "createSuccess": "New goal has been created successfully",
+    "updated": "Goal Updated",
+    "updateSuccess": "Goal has been updated successfully",
+    "deleted": "Goal Deleted",
+    "deleteSuccess": "Goal has been deleted successfully",
+    "filter": {
+      "all": "All",
+      "notStarted": "Not Started",
+      "inProgress": "In Progress",
+      "completed": "Completed"
+    },
+    "status": {
+      "not_started": "Not Started",
+      "in_progress": "In Progress",
+      "completed": "Completed"
+    },
+    "priority": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "form": {
+      "title": "Title",
+      "titlePlaceholder": "Enter goal title",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter detailed description",
+      "deadline": "Deadline",
+      "priority": "Priority",
+      "selectPriority": "Select priority",
+      "status": "Status",
+      "selectStatus": "Select status"
+    }
+  },
+  "events": {
+    "title": "Schedule",
+    "today": "Today's Events",
+    "noEvents": "No events today",
+    "addNew": "Add New Event",
+    "edit": "Edit Event",
+    "instructor": "Instructor",
+    "created": "Event Created",
+    "createSuccess": "New event has been added to schedule",
+    "updated": "Event Updated",
+    "updateSuccess": "Event has been updated successfully",
+    "deleted": "Event Deleted",
+    "deleteSuccess": "Event has been removed from schedule",
+    "form": {
+      "title": "Title",
+      "titlePlaceholder": "Enter event title",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter event description",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "instructor": "Instructor",
+      "instructorPlaceholder": "Enter instructor name",
+      "formDescription": "Fill in your event details"
+    }
+  },
+  "materials": {
+    "title": "Learning Materials",
+    "addNew": "Add New Material",
+    "upload": "Upload New Material",
+    "existing": "Existing Materials",
+    "name": "Material Name",
+    "description": "Description",
+    "uploadFile": "Upload File",
+    "dropzone": "Click to select or drag and drop file here",
+    "view": "View",
+    "select": "Select Materials",
+    "selectTitle": "Select Assignment Materials",
+    "namePlaceholder": "Enter material name",
+    "descriptionPlaceholder": "Enter material description",
+    "file": "Material File",
+    "uploadAndSelect": "Upload and Select",
+    "saveSelections": "Save Selections",
+    "selectionSaved": "Selections Saved",
+    "selectionSavedDescription": "Selected materials have been saved successfully",
+    "uploaded": "Uploaded",
+    "uploadSuccess": "New material has been uploaded successfully",
+    "validation": {
+      "required": "Required Fields",
+      "titleFileRequired": "Title and file are required"
+    }
+  },
+  "assignments": {
+    "title": "Assignment List",
+    "addNew": "Add New Assignment",
+    "deadline": "Deadline",
+    "notes": "Notes",
+    "materials": "Assignment Materials",
+    "noMaterials": "No materials available",
+    "edit": "Edit Assignment",
+    "created": "Assignment Created",
+    "createSuccess": "New assignment has been added successfully",
+    "updated": "Assignment Updated",
+    "updateSuccess": "Assignment has been updated successfully",
+    "deleted": "Assignment Deleted",
+    "deleteSuccess": "Assignment has been deleted successfully",
+    "status": {
+      "not_started": "Not Started",
+      "in_progress": "In Progress",
+      "completed": "Completed"
+    },
+    "validation": {
+      "required": "Required Fields",
+      "titleDeadlineRequired": "Title and deadline are required"
+    },
+    "form": {
+      "title": "Title",
+      "titlePlaceholder": "Enter assignment title",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter assignment description",
+      "deadline": "Deadline",
+      "status": "Status",
+      "selectStatus": "Select status",
+      "notes": "Notes",
+      "notesPlaceholder": "Enter notes (optional)",
+      "submit": "Add Assignment"
+    },
+    "deleteConfirm": {
+      "title": "Are you sure you want to delete?",
+      "description": "This action cannot be undone. This assignment will be permanently deleted."
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllAsRead": "Mark all as read",
+    "noNotifications": "No notifications",
+    "timeAgo": {
+      "seconds": "seconds ago",
+      "minutes": "minutes ago",
+      "hours": "hours ago",
+      "days": "days ago",
+      "months": "months ago",
+      "years": "years ago"
+    }
+  }
+} 

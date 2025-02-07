@@ -2,26 +2,286 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  :root {
+    /* Màu nền chính */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    
+    /* Màu cho navbar */
+    --navbar-background: 0 0% 100%;
+    --navbar-foreground: 240 10% 20%;
+    --navbar-border: 240 5% 90%;
+    
+    /* Màu cho sidebar */
+    --sidebar-background: 230 50% 98%;
+    --sidebar-foreground: 240 10% 20%;
+    --sidebar-border: 230 50% 94%;
+    --sidebar-accent: 230 50% 96%;
+    --sidebar-accent-foreground: 230 50% 20%;
+    
+    /* Màu cho card và các thành phần UI */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    /* Màu cho biểu đồ */
+    --chart-1: 230 50% 50%;
+    --chart-2: 200 55% 50%;
+    --chart-3: 150 40% 50%;
+    --chart-4: 45 55% 50%;
+    --chart-5: 15 45% 50%;
+
+    /* Màu cho lịch */
+    --calendar-cell: 0 0% 100%;
+    --calendar-cell-hover: 230 50% 96%;
+    --calendar-today: 230 50% 96%;
+    --calendar-weekend: 0 0% 98%;
+    --calendar-border: 240 5% 90%;
+    --calendar-time: 240 10% 20%;
+    --calendar-event: 230 50% 50%;
+    --calendar-event-hover: 230 50% 45%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Màu nền chính */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    
+    /* Màu cho navbar */
+    --navbar-background: 230 25% 10%;
+    --navbar-foreground: 0 0% 95%;
+    --navbar-border: 230 25% 15%;
+    
+    /* Màu cho sidebar */
+    --sidebar-background: 230 25% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-border: 230 25% 15%;
+    --sidebar-accent: 230 30% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    
+    /* Màu cho card và các thành phần UI */
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    /* Màu cho biểu đồ */
+    --chart-1: 230 60% 65%;
+    --chart-2: 200 50% 65%;
+    --chart-3: 150 35% 65%;
+    --chart-4: 45 50% 65%;
+    --chart-5: 15 40% 65%;
+
+    /* Màu cho lịch */
+    --calendar-cell: 230 25% 14%;
+    --calendar-cell-hover: 230 30% 18%;
+    --calendar-today: 230 30% 20%;
+    --calendar-weekend: 230 25% 12%;
+    --calendar-border: 230 25% 18%;
+    --calendar-time: 230 20% 80%;
+    --calendar-event: 230 60% 65%;
+    --calendar-event-hover: 230 60% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for better UX */
+.hover-scale {
+  @apply transition-transform duration-200 hover:scale-105;
+}
+
+.card-hover {
+  @apply transition-shadow duration-200 hover:shadow-lg;
+}
+
+.button-hover {
+  @apply transition-colors duration-200;
+}
+
+.input-focus {
+  @apply focus:ring-2 focus:ring-primary/50;
+}
+
+.smooth-transition {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+/* Scheduler styles */
+.dark .MuiTableCell-root {
+  background-color: hsl(var(--calendar-cell)) !important;
+  border-color: hsl(var(--calendar-border)) !important;
+  color: hsl(var(--calendar-time)) !important;
+  font-weight: 500 !important;
+}
+
+/* Label hiển thị giờ */
+.dark .Label-label {
+  color: hsl(var(--calendar-time)) !important;
+  font-weight: 500 !important;
+  padding: 4px 0 !important;
+}
+
+.dark .Label-text {
+  color: hsl(var(--calendar-time)) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  opacity: 0.9 !important;
+}
+
+/* Cột hiển thị giờ bên trái */
+.dark .Layout-cell {
+  background-color: hsl(var(--calendar-cell)) !important;
+  border-right: 2px solid hsl(var(--calendar-border)) !important;
+}
+
+.dark .Layout-cell .Label-text {
+  color: hsl(var(--primary)) !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+.dark .Layout-cell .Label-emptyLabel {
+  border-color: transparent !important;
+}
+
+/* Cell hiển thị ngày */
+.dark .Cell-cell {
+  border-color: hsl(var(--calendar-border)) !important;
+}
+
+.dark .Cell-dayView {
+  padding: 4px !important;
+}
+
+.dark .Cell-dayOfWeek {
+  color: hsl(var(--calendar-time)) !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  opacity: 0.9 !important;
+  margin-bottom: 2px !important;
+}
+
+.dark .Cell-dayOfMonth {
+  color: hsl(var(--calendar-time)) !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+}
+
+/* Ngày hiện tại */
+.dark .Cell-highlightedText {
+  color: hsl(var(--primary)) !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+/* Ngày cuối tuần */
+.dark .WeekView-weekendCell .Cell-dayOfWeek,
+.dark .WeekView-weekendCell .Cell-dayOfMonth {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+/* Đường kẻ giờ hiện tại */
+.dark .WeekView-nowIndicator {
+  background-color: hsl(var(--primary)) !important;
+  height: 2px !important;
+}
+
+.dark .WeekView-nowIndicatorCircle {
+  background-color: hsl(var(--primary)) !important;
+}
+
+.dark .Appointment-appointment {
+  background-color: transparent !important;
+  border: 2px solid hsl(var(--calendar-event)) !important;
+  transition: all 0.2s ease-in-out !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dark .Appointment-appointment:hover {
+  background-color: hsl(var(--calendar-event)) !important;
+  transform: scale(1.02) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .Appointment-content {
+  color: hsl(var(--calendar-time)) !important;
+  font-weight: 500 !important;
+}
+
+.dark .Appointment-appointment:hover .Appointment-content {
+  color: hsl(var(--calendar-cell)) !important;
+}
+
+/* Toolbar và điều hướng */
+.dark .MuiToolbar-root {
+  background-color: hsl(var(--calendar-cell)) !important;
+  border-bottom: 1px solid hsl(var(--calendar-border)) !important;
+  padding: 8px !important;
+}
+
+.dark .MuiButton-root {
+  color: hsl(var(--calendar-time)) !important;
+  font-weight: 500 !important;
+}
+
+.dark .MuiButton-root:hover {
+  background-color: hsl(var(--calendar-cell-hover)) !important;
+}
+
+.dark .MuiButton-textPrimary {
+  color: hsl(var(--primary)) !important;
+}
+
+/* Đường kẻ phân chia giờ */
+.dark .WeekView-timeIndicator {
+  border-color: hsl(var(--calendar-border)) !important;
+  opacity: 0.5 !important;
 }

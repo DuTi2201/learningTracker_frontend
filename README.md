@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Learning Tracker
 
-## Getting Started
+Ứng dụng theo dõi quá trình học tập với giao diện hiện đại và đa ngôn ngữ.
 
-First, run the development server:
+## 🚀 Tính năng
 
+- 📊 Dashboard theo dõi tiến độ học tập
+- 🎯 Quản lý mục tiêu học tập
+- 📅 Lịch học và sự kiện
+- 📚 Quản lý tài liệu học tập
+- ✍️ Quản lý bài tập
+- 🌐 Hỗ trợ đa ngôn ngữ (Tiếng Việt, Tiếng Anh)
+- 🌓 Giao diện sáng/tối
+
+## 🛠️ Công nghệ sử dụng
+
+- [Next.js 14](https://nextjs.org/) - Framework React với Server Components
+- [TypeScript](https://www.typescriptlang.org/) - JavaScript với kiểu dữ liệu tĩnh
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS tiện ích
+- [Shadcn/ui](https://ui.shadcn.com/) - Thư viện components có thể tái sử dụng
+- [Next-intl](https://next-intl-docs.vercel.app/) - Giải pháp đa ngôn ngữ
+- [Next-themes](https://github.com/pacocoursey/next-themes) - Quản lý theme sáng/tối
+- [Recharts](https://recharts.org/) - Thư viện biểu đồ
+- [React Hook Form](https://react-hook-form.com/) - Quản lý form
+- [Zod](https://zod.dev/) - Kiểm tra và xác thực dữ liệu
+
+## 🚦 Bắt đầu
+
+1. **Clone dự án**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd frontend
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Cài đặt dependencies**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Chạy môi trường development**
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Build và chạy production**
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📁 Cấu trúc thư mục
 
-To learn more about Next.js, take a look at the following resources:
+```
+frontend/
+├── app/                    # App router và components
+│   ├── [locale]/          # Route theo ngôn ngữ
+│   │   ├── components/    # Shared components
+│   │   ├── (routes)/     # Route groups
+│   │   └── layout.tsx    # Root layout
+│   └── globals.css       # Global styles
+├── components/            # UI components
+├── config/               # Cấu hình ứng dụng
+├── i18n/                 # Đa ngôn ngữ
+│   └── messages/        # Các file ngôn ngữ
+├── lib/                  # Utilities và helpers
+└── public/              # Static assets
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌍 Đa ngôn ngữ
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Ứng dụng hỗ trợ hai ngôn ngữ:
+- 🇻🇳 Tiếng Việt (Mặc định)
+- 🇬🇧 Tiếng Anh
 
-## Deploy on Vercel
+File ngôn ngữ được đặt trong thư mục `i18n/messages/`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎨 Theming
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ứng dụng sử dụng CSS variables và Tailwind CSS để quản lý theme. Có ba chế độ:
+- 🌞 Light
+- 🌚 Dark
+- 💻 System (Theo cài đặt hệ thống)
+
+## 📝 Quy ước đặt tên
+
+- **Components:** PascalCase (VD: `Sidebar.tsx`)
+- **Utilities:** camelCase (VD: `formatDate.ts`)
+- **Constants:** SCREAMING_SNAKE_CASE (VD: `DEFAULT_LOCALE`)
+- **CSS Classes:** kebab-case (VD: `hover-scale`)
+
+## 🤝 Đóng góp
+
+1. Fork dự án
+2. Tạo branch mới (`git checkout -b feature/amazing-feature`)
+3. Commit thay đổi (`git commit -m 'Add amazing feature'`)
+4. Push lên branch (`git push origin feature/amazing-feature`)
+5. Tạo Pull Request
+
+## 📄 License
+
+MIT License - Xem file [LICENSE](LICENSE) để biết thêm chi tiết.
