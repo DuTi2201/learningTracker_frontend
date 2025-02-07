@@ -1,22 +1,6 @@
-# 📚 Learning Tracker
+# Learning Tracker
 
-> Ứng dụng theo dõi quá trình học tập hiện đại với giao diện đẹp mắt, hỗ trợ đa ngôn ngữ và nhiều tính năng hữu ích cho việc quản lý học tập.
-
-[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-![Demo Screenshot](public/placeholder.svg)
-
-## 🌟 Tổng quan
-
-Learning Tracker là một ứng dụng web hiện đại giúp người dùng theo dõi và quản lý quá trình học tập của mình một cách hiệu quả. Với giao diện người dùng trực quan và các tính năng đa dạng, ứng dụng hỗ trợ việc:
-- Theo dõi tiến độ học tập qua biểu đồ
-- Quản lý mục tiêu và kế hoạch học tập
-- Lập lịch học và sự kiện
-- Tổ chức tài liệu học tập
-- Quản lý bài tập và deadline
+Ứng dụng theo dõi quá trình học tập với giao diện hiện đại và đa ngôn ngữ.
 
 ## 🚀 Tính năng
 
