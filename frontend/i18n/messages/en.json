@@ -28,7 +28,8 @@
     "studyHours": "Study Hours",
     "completedGoals": "Completed Goals",
     "learningProgress": "Learning Progress",
-    "fromLastWeek": "from last week"
+    "fromLastWeek": "from last week",
+    "totalHours": "Total study hours"
   },
   "goals": {
     "title": "Learning Goals",
@@ -106,7 +107,7 @@
     "dropzone": "Click to select or drag and drop file here",
     "view": "View",
     "select": "Select Materials",
-    "selectTitle": "Select Assignment Materials",
+    "selectTitle": "Select Materials",
     "namePlaceholder": "Enter material name",
     "descriptionPlaceholder": "Enter material description",
     "file": "Material File",
@@ -119,7 +120,13 @@
     "validation": {
       "required": "Required Fields",
       "titleFileRequired": "Title and file are required"
-    }
+    },
+    "search": "Search materials...",
+    "filters": {
+      "all": "All materials"
+    },
+    "noResults": "No materials found",
+    "addNewDescription": "Add new learning material to the system"
   },
   "assignments": {
     "title": "Assignment List",

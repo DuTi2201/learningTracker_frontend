@@ -1,5 +1,5 @@
 import createMiddleware from 'next-intl/middleware';
-import { locales, defaultLocale } from './config/i18n';
+import { locales, defaultLocale } from './i18n/settings';
 
 // Middleware cho next-intl
 export default createMiddleware({
@@ -15,10 +15,5 @@ export default createMiddleware({
 
 // Cấu hình matcher cho middleware
 export const config = {
-  matcher: [
-    // Chặn tất cả các đường dẫn (public + protected)
-    '/((?!api|_next|_vercel|.*\\..*).*)',
-    // Chặn các đường dẫn có locale
-    '/(vi|en)/:path*'
-  ]
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 }; 

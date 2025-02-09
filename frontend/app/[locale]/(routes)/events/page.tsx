@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Clock, Plus } from "lucide-react"
 import { events as initialEvents } from "../../lib/mockData"
@@ -13,13 +13,15 @@ import {
   DateNavigator,
   TodayButton,
 } from "@devexpress/dx-react-scheduler-material-ui"
-import type { Event } from "../../lib/mockData"
+import type { Event } from "../../lib/types"
 import { EventForm } from "../../components/events/EventForm"
 import { EventDetailModal } from "../../components/events/EventDetailModal"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
 import { useTranslations } from 'next-intl'
 import { format } from 'date-fns'
+import { getEvents, createEvent, updateEvent, deleteEvent } from "../../lib/api"
+import { MaterialSelector, type Material } from "../../components/shared/MaterialSelector"
 
 // Định nghĩa kiểu dữ liệu cho Scheduler
 interface SchedulerData {
@@ -46,18 +48,24 @@ const mapEventToSchedulerData = (event: Event): SchedulerData => ({
   allDay: false,
 })
 
+type TimeTableCellProps = WeekView.TimeTableCellProps;
+
 // Custom component cho TimeTableCell
-const TimeTableCell = ({ ...restProps }) => (
-  <WeekView.TimeTableCell
-    {...restProps}
-    style={{
-      textAlign: "center",
-      ...(restProps.startDate.getDay() === 0 || restProps.startDate.getDay() === 6
-        ? { backgroundColor: "var(--muted)" }
-        : {}),
-    }}
-  />
-)
+const TimeTableCell = (props: TimeTableCellProps) => {
+  const { startDate = new Date(), ...restProps } = props;
+  return (
+    <WeekView.TimeTableCell
+      {...restProps}
+      startDate={startDate}
+      style={{
+        textAlign: "center",
+        ...(startDate.getDay() === 0 || startDate.getDay() === 6
+          ? { backgroundColor: "var(--muted)" }
+          : {}),
+      }}
+    />
+  );
+};
 
 // Custom component cho Appointment
 const Appointment = ({ children, style, data, onClick, ...restProps }: any) => (
@@ -115,33 +123,97 @@ const transformEventToFormData = (event: Event | null) => {
     endTime: format(event.end, "yyyy-MM-dd'T'HH:mm"),
     description: event.description,
     instructor: event.instructor,
-    materials: event.materials
+    materials: event.materials || []
   }
 }
 
-const transformFormDataToEvent = (formData: any) => ({
-  title: formData.title,
-  start: new Date(formData.startTime),
-  end: new Date(formData.endTime),
-  description: formData.description,
-  instructor: formData.instructor,
-  materials: formData.materials
-})
+const transformFormDataToEvent = (formData: any) => {
+  try {
+    console.log('Transforming form data:', formData);
+    
+    // Kiểm tra dữ liệu đầu vào
+    if (!formData?.title?.trim()) {
+      throw new Error('Title is required');
+    }
+    if (!formData?.startTime) {
+      throw new Error('Start time is required');
+    }
+    if (!formData?.endTime) {
+      throw new Error('End time is required');
+    }
+
+    // Chuyển đổi chuỗi thời gian thành đối tượng Date
+    const startDate = new Date(formData.startTime);
+    const endDate = new Date(formData.endTime);
+    
+    // Kiểm tra tính hợp lệ của ngày
+    if (isNaN(startDate.getTime())) {
+      throw new Error('Invalid start time format');
+    }
+    if (isNaN(endDate.getTime())) {
+      throw new Error('Invalid end time format');
+    }
+    if (startDate >= endDate) {
+      throw new Error('End time must be after start time');
+    }
+
+    // Tạo đối tượng event mới
+    const eventData = {
+      title: formData.title.trim(),
+      description: formData.description?.trim() || "",
+      start: startDate.toISOString(),
+      end: endDate.toISOString(),
+      instructor: formData.instructor?.trim() || "",
+      materials: Array.isArray(formData.materials) ? formData.materials : []
+    };
+
+    console.log('Transformed event data:', eventData);
+    return eventData;
+  } catch (error) {
+    console.error('Error in transformFormDataToEvent:', error);
+    throw error;
+  }
+}
 
 export default function Events() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
   const [currentDate, setCurrentDate] = useState<Date>(new Date())
-  const [events, setEvents] = useState<Event[]>(initialEvents)
+  const [events, setEvents] = useState<Event[]>([])
+  const [isLoading, setIsLoading] = useState(true)
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [editingEvent, setEditingEvent] = useState<Event | null>(null)
   const { toast } = useToast()
   const t = useTranslations()
 
+  useEffect(() => {
+    loadEvents()
+  }, [])
+
+  const loadEvents = async () => {
+    try {
+      const data = await getEvents()
+      setEvents(data)
+    } catch (error) {
+      toast({
+        title: t('events.error.load'),
+        description: t('events.error.loadDescription'),
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   // Lọc sự kiện trong ngày
   const todayEvents = events.filter((event) => {
     const today = new Date()
-    return event.start.toDateString() === today.toDateString()
-  })
+    const eventDate = new Date(event.start)
+    return eventDate.toDateString() === today.toDateString()
+  }).map(event => ({
+    ...event,
+    start: new Date(event.start),
+    end: new Date(event.end)
+  }))
 
   const handleEventClick = (eventId: string) => {
     const event = events.find((e) => e.id === eventId)
@@ -150,51 +222,78 @@ export default function Events() {
     }
   }
 
-  const handleCreateEvent = (data: Omit<Event, "id">) => {
-    const newEvent: Event = {
-      id: String(Math.max(...events.map((e) => Number(e.id))) + 1),
-      ...data,
-      start: new Date(data.start),
-      end: new Date(data.end),
-      materials: data.materials || [],
+  const handleCreateEvent = async (formData: any) => {
+    try {
+      console.log('Creating event with form data:', formData);
+      
+      if (!formData) {
+        throw new Error(t('events.error.missingData'));
+      }
+
+      // Chuyển đổi dữ liệu form thành event data
+      const eventData = transformFormDataToEvent(formData);
+      
+      if (!eventData) {
+        throw new Error(t('events.error.invalidFormData'));
+      }
+
+      console.log('Sending event data to server:', eventData);
+      const createdEvent = await createEvent(eventData);
+      
+      setEvents(prevEvents => [...prevEvents, {
+        ...createdEvent,
+        start: new Date(createdEvent.start),
+        end: new Date(createdEvent.end)
+      }]);
+      
+      setIsFormOpen(false);
+      toast({
+        title: t('events.created'),
+        description: t('events.createSuccess'),
+      });
+    } catch (error) {
+      console.error('Error creating event:', error);
+      toast({
+        title: t('events.error.create'),
+        description: error instanceof Error ? error.message : t('events.error.createDescription'),
+        variant: "destructive",
+      });
     }
-    setEvents((prevEvents) => [...prevEvents, newEvent])
-    setIsFormOpen(false)
-    toast({
-      title: "Sự kiện đã được tạo",
-      description: "Sự kiện mới đã được thêm vào lịch.",
-    })
   }
 
-  const handleUpdateEvent = (data: Partial<Event>) => {
-    if (!editingEvent) return
-    setEvents((prevEvents) =>
-      prevEvents.map((event) =>
-        event.id === editingEvent.id
-          ? {
-              ...event,
-              ...data,
-              start: new Date(data.start || event.start),
-              end: new Date(data.end || event.end),
-              materials: data.materials || event.materials,
-            }
-          : event,
-      )
-    )
-    setEditingEvent(null)
-    setIsFormOpen(false)
-    toast({
-      title: "Sự kiện đã được cập nhật",
-      description: "Thông tin sự kiện đã được cập nhật thành công.",
-    })
+  const handleUpdateEvent = async (id: string, formData: any) => {
+    try {
+      const updatedEvent = transformFormDataToEvent(formData)
+      const result = await updateEvent(id, updatedEvent)
+      setEvents(events.map(e => e.id === id ? result : e))
+      toast({
+        title: t('events.updated'),
+        description: t('events.updateSuccess'),
+      })
+    } catch (error) {
+      toast({
+        title: t('events.error.update'),
+        description: t('events.error.updateDescription'),
+        variant: "destructive",
+      })
+    }
   }
 
-  const handleDeleteEvent = (eventId: string) => {
-    setEvents((prevEvents) => prevEvents.filter((event) => event.id !== eventId))
-    toast({
-      title: "Sự kiện đã được xóa",
-      description: "Sự kiện đã được xóa khỏi lịch.",
-    })
+  const handleDeleteEvent = async (id: string) => {
+    try {
+      await deleteEvent(id)
+      setEvents(events.filter(e => e.id !== id))
+      toast({
+        title: t('events.deleted'),
+        description: t('events.deleteSuccess'),
+      })
+    } catch (error) {
+      toast({
+        title: t('events.error.delete'),
+        description: t('events.error.deleteDescription'),
+        variant: "destructive",
+      })
+    }
   }
 
   const handleEditEvent = (event: Event) => {
@@ -287,14 +386,17 @@ export default function Events() {
       <EventForm
         isOpen={isFormOpen}
         onClose={() => {
-          setIsFormOpen(false)
-          setEditingEvent(null)
+          setIsFormOpen(false);
+          setEditingEvent(null);
         }}
         onSubmit={(formData) => {
-          const eventData = transformFormDataToEvent(formData)
-          editingEvent ? handleUpdateEvent(eventData) : handleCreateEvent(eventData)
+          if (editingEvent) {
+            handleUpdateEvent(editingEvent.id, formData);
+          } else {
+            handleCreateEvent(formData);
+          }
         }}
-        initialData={transformEventToFormData(editingEvent)}
+        initialData={editingEvent ? transformEventToFormData(editingEvent) : undefined}
       />
 
       {/* Modal xem chi tiết sự kiện */}

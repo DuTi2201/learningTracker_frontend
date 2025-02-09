@@ -1,14 +1,23 @@
 {
   "common": {
-    "search": "Tìm kiếm...",
-    "language": "Chuyển đổi ngôn ngữ",
+    "search": "Tìm kiếm",
+    "language": "Ngôn ngữ",
     "theme": "Chuyển đổi giao diện",
     "edit": "Sửa",
     "delete": "Xóa",
     "cancel": "Hủy",
     "close": "Đóng",
     "update": "Cập nhật",
-    "create": "Tạo mới"
+    "create": "Tạo mới",
+    "deleteConfirm": {
+      "title": "Xác nhận xóa",
+      "description": "Bạn có chắc chắn muốn xóa mục này? Hành động này không thể hoàn tác."
+    }
+  },
+  "home": {
+    "welcome": "Chào mừng đến với Learning Tracker",
+    "description": "Theo dõi và quản lý việc học của bạn một cách hiệu quả",
+    "viewDashboard": "Xem bảng điều khiển"
   },
   "nav": {
     "dashboard": "Trang chủ",
@@ -28,7 +37,8 @@
     "studyHours": "Số giờ học tập",
     "completedGoals": "Mục tiêu đã đạt",
     "learningProgress": "Tiến độ học tập",
-    "fromLastWeek": "so với tuần trước"
+    "fromLastWeek": "so với tuần trước",
+    "totalHours": "Tổng số giờ học"
   },
   "goals": {
     "title": "Mục tiêu học tập",
@@ -93,33 +103,72 @@
       "instructor": "Giảng viên",
       "instructorPlaceholder": "Nhập tên giảng viên",
       "formDescription": "Điền thông tin cho sự kiện của bạn"
+    },
+    "error": {
+      "load": "Không thể tải sự kiện",
+      "loadDescription": "Đã xảy ra lỗi khi tải danh sách sự kiện",
+      "create": "Không thể tạo sự kiện",
+      "createDescription": "Đã xảy ra lỗi khi tạo sự kiện mới",
+      "update": "Không thể cập nhật sự kiện",
+      "updateDescription": "Đã xảy ra lỗi khi cập nhật sự kiện",
+      "delete": "Không thể xóa sự kiện",
+      "deleteDescription": "Đã xảy ra lỗi khi xóa sự kiện",
+      "invalidTime": "Thời gian không hợp lệ",
+      "endTimeBeforeStart": "Thời gian kết thúc phải sau thời gian bắt đầu"
     }
   },
   "materials": {
-    "title": "Tài liệu học tập",
-    "addNew": "Thêm tài liệu mới",
-    "upload": "Tải lên tài liệu mới",
-    "existing": "Tài liệu có sẵn",
+    "title": "Tài liệu",
+    "addNew": "Thêm tài liệu",
+    "edit": "Chỉnh sửa tài liệu",
     "name": "Tên tài liệu",
     "description": "Mô tả",
-    "uploadFile": "Tải lên file",
-    "dropzone": "Click để chọn file hoặc kéo thả file vào đây",
-    "view": "Xem",
-    "select": "Chọn tài liệu",
-    "selectTitle": "Chọn nội dung bài tập",
+    "file": "Tệp",
     "namePlaceholder": "Nhập tên tài liệu",
     "descriptionPlaceholder": "Nhập mô tả tài liệu",
-    "file": "File tài liệu",
+    "dropzone": "Kéo thả file hoặc click để chọn",
+    "select": "Chọn tài liệu",
+    "selectTitle": "Chọn tài liệu",
+    "existing": "Tài liệu có sẵn",
+    "upload": "Tải lên",
     "uploadAndSelect": "Tải lên và chọn",
-    "saveSelections": "Lưu lựa chọn",
+    "uploading": "Đang tải lên...",
+    "uploaded": "Tải lên thành công",
+    "uploadSuccess": "Tài liệu đã được tải lên thành công",
     "selectionSaved": "Đã lưu lựa chọn",
-    "selectionSavedDescription": "Các tài liệu đã chọn đã được lưu thành công",
-    "uploaded": "Đã tải lên",
-    "uploadSuccess": "Tài liệu mới đã được tải lên thành công",
+    "selectionSavedDescription": "Danh sách tài liệu đã được cập nhật",
+    "saveSelections": "Lưu lựa chọn",
+    "created": "Đã tạo tài liệu",
+    "createSuccess": "Tài liệu mới đã được tạo thành công",
+    "updated": "Đã cập nhật tài liệu",
+    "updateSuccess": "Tài liệu đã được cập nhật thành công",
+    "deleted": "Đã xóa tài liệu",
+    "deleteSuccess": "Tài liệu đã được xóa thành công",
+    "view": "Xem",
+    "openInNewTab": "Mở trong tab mới",
     "validation": {
       "required": "Vui lòng điền đầy đủ thông tin",
-      "titleFileRequired": "Tiêu đề và tài liệu là bắt buộc"
-    }
+      "titleLinkRequired": "Tên và đường dẫn là bắt buộc"
+    },
+    "error": {
+      "load": "Không thể tải tài liệu",
+      "loadDescription": "Đã xảy ra lỗi khi tải danh sách tài liệu",
+      "create": "Không thể tạo tài liệu",
+      "createDescription": "Đã xảy ra lỗi khi tạo tài liệu mới",
+      "update": "Không thể cập nhật tài liệu",
+      "updateDescription": "Đã xảy ra lỗi khi cập nhật tài liệu",
+      "delete": "Không thể xóa tài liệu",
+      "deleteDescription": "Đã xảy ra lỗi khi xóa tài liệu",
+      "upload": "Không thể tải lên tài liệu",
+      "uploadDescription": "Đã xảy ra lỗi khi tải lên tài liệu"
+    },
+    "uploadDescription": "Đang tải lên tài liệu của bạn...",
+    "search": "Tìm kiếm tài liệu...",
+    "filters": {
+      "all": "Tất cả tài liệu"
+    },
+    "noResults": "Không tìm thấy tài liệu nào",
+    "addNewDescription": "Thêm tài liệu học tập mới vào hệ thống"
   },
   "assignments": {
     "title": "Danh sách bài tập",
@@ -128,13 +177,22 @@
     "notes": "Ghi chú",
     "materials": "Nội dung bài tập",
     "noMaterials": "Không có tài liệu để hiển thị",
-    "edit": "Chỉnh sửa bài tập",
-    "created": "Đã thêm bài tập",
-    "createSuccess": "Bài tập mới đã được thêm vào danh sách",
-    "updated": "Đã cập nhật bài tập",
-    "updateSuccess": "Thông tin bài tập đã được cập nhật thành công",
-    "deleted": "Đã xóa bài tập",
-    "deleteSuccess": "Bài tập đã được xóa khỏi danh sách",
+    "noAssignments": "Không có bài tập nào",
+    "searchPlaceholder": "Tìm kiếm bài tập...",
+    "filterStatus": "Lọc theo trạng thái",
+    "filterDate": "Lọc theo thời hạn",
+    "sortBy": "Sắp xếp theo",
+    "filter": {
+      "allStatus": "Tất cả trạng thái",
+      "allTime": "Tất cả thời gian",
+      "today": "Hôm nay",
+      "thisWeek": "Tuần này",
+      "thisMonth": "Tháng này"
+    },
+    "sort": {
+      "deadline": "Thời hạn",
+      "status": "Trạng thái"
+    },
     "status": {
       "not_started": "Chưa bắt đầu",
       "in_progress": "Đang thực hiện",
@@ -163,15 +221,23 @@
   },
   "notifications": {
     "title": "Thông báo",
-    "markAllAsRead": "Đánh dấu tất cả là đã đọc",
-    "noNotifications": "Không có thông báo nào",
-    "timeAgo": {
-      "seconds": "giây trước",
-      "minutes": "phút trước",
-      "hours": "giờ trước",
-      "days": "ngày trước",
-      "months": "tháng trước",
-      "years": "năm trước"
+    "loading": "Đang tải...",
+    "noNotifications": "Không có thông báo mới",
+    "markAllAsRead": "Đánh dấu tất cả đã đọc",
+    "error": {
+      "load": "Không thể tải thông báo",
+      "loadDescription": "Đã xảy ra lỗi khi tải thông báo"
     }
+  },
+  "search": {
+    "title": "Tìm kiếm",
+    "searching": "Đang tìm kiếm...",
+    "noResults": "Không tìm thấy kết quả",
+    "resultsFound": "Tìm thấy {count} kết quả",
+    "materials": "Tài liệu",
+    "events": "Sự kiện",
+    "assignments": "Bài tập",
+    "goals": "Mục tiêu",
+    "error": "Không thể thực hiện tìm kiếm"
   }
 } 

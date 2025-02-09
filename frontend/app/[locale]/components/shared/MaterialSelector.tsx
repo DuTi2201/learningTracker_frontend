@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
@@ -6,27 +6,59 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Check, Upload, FileText, X } from "lucide-react"
+import { Check, Upload, FileText, X, Loader2 } from "lucide-react"
 import { toast } from "sonner"
 import { cn } from "@/lib/utils"
-import type { Material } from "../../lib/mockData"
+import { getMaterials, createMaterial, uploadFile } from "../../lib/api"
+
+// Định nghĩa interface Material để không phụ thuộc vào mockData
+export interface Material {
+  id: string
+  title: string
+  description?: string
+  type: "file" | "link"
+  link: string
+  date: string
+}
 
 interface MaterialSelectorProps {
   selectedMaterials: Material[]
   onSelectMaterials: (materials: Material[]) => void
   existingMaterials?: Material[]
+  labelText?: string // Thêm prop để tùy chỉnh label text
+  isLoading?: boolean
 }
 
 export function MaterialSelector({
   selectedMaterials,
   onSelectMaterials,
-  existingMaterials = [],
+  existingMaterials: propExistingMaterials,
+  labelText = "Materials",
+  isLoading = false
 }: MaterialSelectorProps) {
   const t = useTranslations()
   const [isOpen, setIsOpen] = useState(false)
   const [newMaterial, setNewMaterial] = useState<Partial<Material>>({})
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
   const [tempSelectedMaterials, setTempSelectedMaterials] = useState<Material[]>([])
+  const [materials, setMaterials] = useState<Material[]>([])
+
+  useEffect(() => {
+    if (isOpen) {
+      loadMaterials()
+    }
+  }, [isOpen])
+
+  const loadMaterials = async () => {
+    try {
+      const data = await getMaterials()
+      setMaterials(data)
+    } catch (error) {
+      toast.error(t("materials.error.load"), {
+        description: t("materials.error.loadDescription")
+      })
+    }
+  }
 
   const handleOpenDialog = () => {
     setTempSelectedMaterials([...selectedMaterials])
@@ -57,31 +89,51 @@ export function MaterialSelector({
     }
   }
 
-  const handleUploadMaterial = () => {
+  const handleUploadMaterial = async () => {
     if (!newMaterial.title || !uploadedFile) return
 
-    const newMaterialComplete: Material = {
-      id: String(Math.max(...existingMaterials.map((m) => Number(m.id)), 0) + 1),
-      title: newMaterial.title,
-      description: newMaterial.description || "",
-      type: "file",
-      link: URL.createObjectURL(uploadedFile),
-      date: new Date().toISOString().split('T')[0]
-    }
+    try {
+      // Hiển thị loading state
+      toast.loading(t("materials.uploading"), {
+        id: "upload-loading"
+      })
 
-    setTempSelectedMaterials([...tempSelectedMaterials, newMaterialComplete])
-    setNewMaterial({})
-    setUploadedFile(null)
-    
-    toast.success(t("materials.uploaded"), {
-      description: t("materials.uploadSuccess"),
-    })
+      // Upload file lên server
+      const uploadResult = await uploadFile(uploadedFile)
+
+      // Tạo material mới với URL từ server
+      const newItem = {
+        title: newMaterial.title,
+        description: newMaterial.description || "",
+        type: "file" as const,
+        link: uploadResult.fileUrl,
+        date: new Date().toISOString().split('T')[0]
+      }
+
+      const createdMaterial = await createMaterial(newItem)
+      setMaterials([...materials, createdMaterial])
+      setTempSelectedMaterials([...tempSelectedMaterials, createdMaterial])
+      setNewMaterial({})
+      setUploadedFile(null)
+      
+      // Cập nhật toast thành công
+      toast.success(t("materials.uploaded"), {
+        description: t("materials.uploadSuccess"),
+        id: "upload-loading"
+      })
+    } catch (error) {
+      console.error('Upload failed:', error)
+      toast.error(t("materials.error.upload"), {
+        description: t("materials.error.uploadDescription"),
+        id: "upload-loading"
+      })
+    }
   }
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <Label>{t("materials.title")}</Label>
+        <Label>{labelText}</Label>
         <Button type="button" onClick={handleOpenDialog}>
           {t("materials.select")}
         </Button>
@@ -101,7 +153,14 @@ export function MaterialSelector({
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => handleSelectMaterial(material)}
+                onClick={() => {
+                  const newSelectedMaterials = selectedMaterials.filter(m => m.id !== material.id);
+                  onSelectMaterials(newSelectedMaterials);
+                  setTempSelectedMaterials(newSelectedMaterials);
+                  toast.success(t("materials.deleted"), {
+                    description: t("materials.deleteSuccess"),
+                  });
+                }}
               >
                 {t("common.delete")}
               </Button>
@@ -129,36 +188,42 @@ export function MaterialSelector({
 
             <TabsContent value="existing">
               <ScrollArea className="h-[300px] pr-4">
-                <div className="space-y-2">
-                  {existingMaterials.map((material) => {
-                    const isSelected = tempSelectedMaterials.some(
-                      (m) => m.id === material.id
-                    )
-                    return (
-                      <div
-                        key={material.id}
-                        className={cn(
-                          "flex items-center justify-between p-3 border rounded-lg cursor-pointer hover:bg-accent",
-                          isSelected && "border-primary"
-                        )}
-                        onClick={() => handleSelectMaterial(material)}
-                      >
-                        <div className="flex items-center gap-3">
-                          <FileText className="h-4 w-4 text-muted-foreground" />
-                          <div className="flex flex-col">
-                            <span className="font-medium">{material.title}</span>
-                            {material.description && (
-                              <span className="text-sm text-muted-foreground">
-                                {material.description}
-                              </span>
-                            )}
+                {isLoading ? (
+                  <div className="flex items-center justify-center h-full">
+                    <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    {materials.map((material) => {
+                      const isSelected = tempSelectedMaterials.some(
+                        (m) => m.id === material.id
+                      )
+                      return (
+                        <div
+                          key={material.id}
+                          className={cn(
+                            "flex items-center justify-between p-3 border rounded-lg cursor-pointer hover:bg-accent",
+                            isSelected && "border-primary"
+                          )}
+                          onClick={() => handleSelectMaterial(material)}
+                        >
+                          <div className="flex items-center gap-3">
+                            <FileText className="h-4 w-4 text-muted-foreground" />
+                            <div className="flex flex-col">
+                              <span className="font-medium">{material.title}</span>
+                              {material.description && (
+                                <span className="text-sm text-muted-foreground">
+                                  {material.description}
+                                </span>
+                              )}
+                            </div>
                           </div>
+                          {isSelected && <Check className="h-4 w-4 text-primary" />}
                         </div>
-                        {isSelected && <Check className="h-4 w-4 text-primary" />}
-                      </div>
-                    )
-                  })}
-                </div>
+                      )
+                    })}
+                  </div>
+                )}
               </ScrollArea>
             </TabsContent>
 

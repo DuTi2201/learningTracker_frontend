@@ -1,47 +1,110 @@
 "use client"
 
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
-import { useLocale } from 'next-intl'
-import { type Locale } from '@/config/i18n'
+import { Bar } from "react-chartjs-2"
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  Scale,
+  CoreScaleOptions,
+  Tick
+} from 'chart.js'
 
-const weekDays = {
-  en: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-  vi: ["T2", "T3", "T4", "T5", "T6", "T7", "CN"]
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+)
+
+interface ChartData {
+  labels: string[]
+  datasets: {
+    label: string
+    data: number[]
+  }[]
 }
 
-export default function LearningProgressChart() {
-  const locale = useLocale() as Locale
-  
-  const data = weekDays[locale].map((day, index) => ({
-    name: day,
-    total: [2.4, 1.8, 2.8, 2.6, 3.2, 2.0, 1.4][index],
-  }))
+interface Props {
+  data?: ChartData
+}
+
+export default function LearningProgressChart({ data }: Props) {
+  if (!data) return null
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top' as const,
+        labels: {
+          padding: 20,
+          font: {
+            size: 12
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 100,
+        grid: {
+          display: true,
+          drawBorder: false
+        },
+        ticks: {
+          font: {
+            size: 12
+          },
+          callback: function(this: Scale<CoreScaleOptions>, tickValue: number | string) {
+            return `${tickValue}%`
+          }
+        }
+      },
+      x: {
+        grid: {
+          display: false,
+          drawBorder: false
+        },
+        ticks: {
+          font: {
+            size: 12
+          }
+        }
+      }
+    },
+    layout: {
+      padding: {
+        top: 10,
+        bottom: 10
+      }
+    },
+    barThickness: 30
+  }
+
+  const chartData = {
+    labels: data.labels,
+    datasets: data.datasets.map((dataset, index) => ({
+      ...dataset,
+      backgroundColor: index === 0 ? 'rgba(75, 192, 192, 0.5)' : 'rgba(255, 159, 64, 0.5)',
+      borderColor: index === 0 ? 'rgb(75, 192, 192)' : 'rgb(255, 159, 64)',
+      borderWidth: 1,
+      borderRadius: 4
+    }))
+  }
 
   return (
-    <ResponsiveContainer width="100%" height={350}>
-      <BarChart data={data}>
-        <XAxis
-          dataKey="name"
-          stroke="#888888"
-          fontSize={12}
-          tickLine={false}
-          axisLine={false}
-        />
-        <YAxis
-          stroke="#888888"
-          fontSize={12}
-          tickLine={false}
-          axisLine={false}
-          tickFormatter={(value) => `${value}h`}
-        />
-        <Bar
-          dataKey="total"
-          fill="currentColor"
-          radius={[4, 4, 0, 0]}
-          className="fill-primary"
-        />
-      </BarChart>
-    </ResponsiveContainer>
+    <div style={{ height: '240px', width: '100%' }}>
+      <Bar options={options} data={chartData} />
+    </div>
   )
 }
 

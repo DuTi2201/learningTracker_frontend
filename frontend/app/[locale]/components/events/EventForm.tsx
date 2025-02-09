@@ -9,14 +9,15 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
-import { MaterialSelector } from "./MaterialSelector"
-import { useState } from "react"
-import type { Event, Material } from "../../lib/mockData"
+import { MaterialSelector } from "../../components/shared/MaterialSelector"
+import { useState, useEffect } from "react"
+import type { Event, Material } from "../../lib/types"
 import { useTranslations } from "next-intl"
 import { X } from "lucide-react"
 import { toast } from "sonner"
 import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
+import { getMaterials } from "../../lib/api"
 
 const formSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -33,44 +34,16 @@ interface EventFormProps {
   initialData?: z.infer<typeof formSchema> & { materials: Material[] }
 }
 
-// Mock data cho tài liệu có sẵn - trong thực tế sẽ lấy từ API
-const mockExistingMaterials: Material[] = [
-  {
-    id: "1",
-    title: "English Grammar Basics",
-    description: "Basic English grammar materials",
-    type: "file",
-    link: "/materials/grammar-basics.pdf",
-    date: "2024-01-15"
-  },
-  {
-    id: "2",
-    title: "IELTS Speaking Practice",
-    description: "IELTS speaking practice materials",
-    type: "file",
-    link: "/materials/ielts-speaking.pdf",
-    date: "2024-01-20"
-  },
-  {
-    id: "3",
-    title: "Business English Vocabulary",
-    description: "Business English vocabulary list",
-    type: "file",
-    link: "/materials/business-vocab.pdf",
-    date: "2024-01-25"
-  },
-]
-
 export function EventForm({ isOpen, onClose, onSubmit, initialData }: EventFormProps) {
   const t = useTranslations()
   const { toast } = useToast()
-  const [selectedMaterials, setSelectedMaterials] = useState<Material[]>(
-    initialData?.materials || []
-  )
+  const [selectedMaterials, setSelectedMaterials] = useState<Material[]>([])
+  const [existingMaterials, setExistingMaterials] = useState<Material[]>([])
+  const [isLoadingMaterials, setIsLoadingMaterials] = useState(false)
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: initialData || {
+    defaultValues: {
       title: "",
       description: "",
       startTime: "",
@@ -79,21 +52,146 @@ export function EventForm({ isOpen, onClose, onSubmit, initialData }: EventFormP
     },
   })
 
+  // Cập nhật form khi có initialData thay đổi
+  useEffect(() => {
+    if (initialData) {
+      console.log('Setting form values from initialData:', initialData);
+      form.reset({
+        title: initialData.title || '',
+        description: initialData.description || '',
+        startTime: initialData.startTime || '',
+        endTime: initialData.endTime || '',
+        instructor: initialData.instructor || '',
+      });
+      setSelectedMaterials(initialData.materials || []);
+    } else {
+      form.reset({
+        title: "",
+        description: "",
+        startTime: "",
+        endTime: "",
+        instructor: "",
+      });
+      setSelectedMaterials([]);
+    }
+  }, [initialData, form]);
+
+  // Load materials khi form mở
+  useEffect(() => {
+    if (isOpen) {
+      loadMaterials()
+    }
+  }, [isOpen])
+
+  const loadMaterials = async () => {
+    try {
+      setIsLoadingMaterials(true)
+      const data = await getMaterials()
+      setExistingMaterials(data)
+    } catch (error) {
+      console.error('Failed to load materials:', error)
+      toast({
+        title: t('materials.error.load'),
+        description: t('materials.error.loadDescription'),
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoadingMaterials(false)
+    }
+  }
+
   const handleClose = () => {
-    form.reset()
-    setSelectedMaterials([])
-    onClose()
+    form.reset();
+    setSelectedMaterials([]);
+    onClose();
   }
 
   const handleSubmit = (values: z.infer<typeof formSchema>) => {
-    onSubmit({ ...values, materials: selectedMaterials })
-    form.reset()
-    setSelectedMaterials([])
-    onClose()
-    toast({
-      title: initialData ? t("events.updated") : t("events.created"),
-      description: initialData ? t("events.updateSuccess") : t("events.createSuccess"),
-    })
+    try {
+      console.log('Form values:', values);
+
+      // Kiểm tra các trường bắt buộc
+      if (!values.title?.trim()) {
+        toast({
+          title: t('events.error.missingFields'),
+          description: t('events.error.titleRequired'),
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!values.startTime) {
+        toast({
+          title: t('events.error.missingFields'),
+          description: t('events.error.startTimeRequired'),
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (!values.endTime) {
+        toast({
+          title: t('events.error.missingFields'),
+          description: t('events.error.endTimeRequired'),
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Validate thời gian
+      const startTime = new Date(values.startTime);
+      const endTime = new Date(values.endTime);
+      
+      if (isNaN(startTime.getTime())) {
+        toast({
+          title: t('events.error.invalidTime'),
+          description: t('events.error.invalidStartTime'),
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (isNaN(endTime.getTime())) {
+        toast({
+          title: t('events.error.invalidTime'),
+          description: t('events.error.invalidEndTime'),
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      if (endTime <= startTime) {
+        toast({
+          title: t('events.error.invalidTime'),
+          description: t('events.error.endTimeBeforeStart'),
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Chuẩn bị dữ liệu form
+      const formData = {
+        title: values.title.trim(),
+        description: values.description?.trim() || "",
+        startTime: values.startTime,
+        endTime: values.endTime,
+        instructor: values.instructor?.trim() || "",
+        materials: selectedMaterials
+      };
+
+      console.log('Submitting form data:', formData);
+      onSubmit(formData);
+
+      // Reset form và đóng modal
+      handleClose();
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: t('events.error.create'),
+        description: error instanceof Error ? error.message : t('events.error.createDescription'),
+        variant: "destructive",
+      });
+    }
   }
 
   return (
@@ -196,7 +294,8 @@ export function EventForm({ isOpen, onClose, onSubmit, initialData }: EventFormP
             <MaterialSelector
               selectedMaterials={selectedMaterials}
               onSelectMaterials={setSelectedMaterials}
-              existingMaterials={mockExistingMaterials}
+              existingMaterials={existingMaterials}
+              isLoading={isLoadingMaterials}
             />
 
             <DialogFooter>

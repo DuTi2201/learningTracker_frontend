@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useTranslations } from 'next-intl'
+import { useEffect } from 'react'
 
 const goalFormSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -33,23 +34,43 @@ export function GoalForm({ isOpen, onClose, onSubmit, initialData }: GoalFormPro
   
   const form = useForm<GoalFormValues>({
     resolver: zodResolver(goalFormSchema),
-    defaultValues: {
-      title: initialData?.title || "",
-      description: initialData?.description || "",
-      deadline: initialData?.deadline || "",
-      priority: initialData?.priority || "medium",
-      status: initialData?.status || "not_started",
+    defaultValues: initialData || {
+      title: "",
+      description: "",
+      deadline: "",
+      priority: "medium",
+      status: "not_started",
     },
   })
 
-  const handleClose = () => {
-    form.reset()
-    onClose()
+  useEffect(() => {
+    if (isOpen) {
+      if (initialData) {
+        form.reset({
+          title: initialData.title || "",
+          description: initialData.description || "",
+          deadline: initialData.deadline || "",
+          priority: initialData.priority || "medium",
+          status: initialData.status || "not_started",
+        });
+      } else {
+        form.reset({
+          title: "",
+          description: "",
+          deadline: "",
+          priority: "medium",
+          status: "not_started",
+        });
+      }
+    }
+  }, [isOpen, initialData]);
+
+  const handleSubmit = async (data: GoalFormValues) => {
+    await onSubmit(data);
   }
 
-  const handleSubmit = (data: GoalFormValues) => {
-    onSubmit(data)
-    form.reset()
+  const handleClose = () => {
+    onClose();
   }
 
   return (

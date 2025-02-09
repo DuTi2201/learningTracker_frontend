@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { FileText, Calendar, CircleCheck, Trash2, Pencil, AlignLeft, StickyNote, BookOpen } from "lucide-react"
 import { useState } from "react"
-import type { Assignment } from "../../lib/mockData"
+import type { Assignment } from "../../lib/types"
 import { useTranslations } from 'next-intl'
 import { cn } from "@/lib/utils"
 
@@ -20,7 +20,7 @@ interface AssignmentDetailModalProps {
   isOpen: boolean
   onClose: () => void
   onEdit: (assignment: Assignment) => void
-  onDelete: (assignmentId: number) => void
+  onDelete: (id: number) => void
   assignment: Assignment | null
 }
 
@@ -37,9 +37,10 @@ export function AssignmentDetailModal({
   if (!assignment) return null
 
   const handleDelete = () => {
-    onDelete(assignment.id)
-    setShowDeleteAlert(false)
-    onClose()
+    if (!assignment) return;
+    onDelete(assignment.id);
+    setShowDeleteAlert(false);
+    onClose();
   }
 
   const handleEdit = () => {

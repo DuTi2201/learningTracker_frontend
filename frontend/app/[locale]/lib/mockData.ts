@@ -1,67 +1,4 @@
-export interface Material {
-  id: string
-  title: string
-  description: string
-  type: "file" | "link"
-  link: string
-  date?: string
-}
-
-export interface Assignment {
-  id: number
-  title: string
-  description: string
-  deadline: string
-  status: "not_started" | "in_progress" | "completed"
-  notes: string
-  materials: Material[]
-}
-
-export interface Event {
-  id: string
-  title: string
-  description: string
-  start: Date
-  end: Date
-  instructor: string
-  materials: Material[]
-}
-
-export interface Goal {
-  id: number
-  title: string
-  description: string
-  deadline: string
-  priority: "high" | "medium" | "low"
-  status: "not_started" | "in_progress" | "completed"
-}
-
-export const goals: Goal[] = [
-  {
-    id: 1,
-    title: "Complete TOEIC course",
-    description: "Finish all lessons in the TOEIC preparation course",
-    deadline: "2023-12-31",
-    priority: "high",
-    status: "in_progress",
-  },
-  {
-    id: 2,
-    title: "Improve speaking skills",
-    description: "Practice speaking for 30 minutes daily",
-    deadline: "2023-11-30",
-    priority: "medium",
-    status: "not_started",
-  },
-  {
-    id: 3,
-    title: "Read 5 English books",
-    description: "Read and summarize 5 English novels",
-    deadline: "2023-12-15",
-    priority: "low",
-    status: "in_progress",
-  },
-]
+import type { Material, Assignment, Event, Goal } from './types';
 
 export const materials: Material[] = [
   {
@@ -88,7 +25,7 @@ export const materials: Material[] = [
     link: "https://example.com/vocabulary.pdf",
     date: "2024-01-25"
   }
-]
+];
 
 export const assignments: Assignment[] = [
   {
@@ -118,7 +55,7 @@ export const assignments: Assignment[] = [
     notes: "Scored 85%, review missed words",
     materials: [],
   },
-]
+];
 
 export const events: Event[] = [
   {
@@ -172,4 +109,31 @@ export const events: Event[] = [
       },
     ],
   },
-] 
+];
+
+export const goals: Goal[] = [
+  {
+    id: 1,
+    title: "Complete TOEIC course",
+    description: "Finish all lessons in the TOEIC preparation course",
+    deadline: "2023-12-31",
+    priority: "high",
+    status: "in_progress",
+  },
+  {
+    id: 2,
+    title: "Improve speaking skills",
+    description: "Practice speaking for 30 minutes daily",
+    deadline: "2023-11-30",
+    priority: "medium",
+    status: "not_started",
+  },
+  {
+    id: 3,
+    title: "Read 5 English books",
+    description: "Read and summarize 5 English novels",
+    deadline: "2023-12-15",
+    priority: "low",
+    status: "in_progress",
+  },
+]; 

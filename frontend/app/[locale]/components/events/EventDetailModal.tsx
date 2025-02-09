@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button"
 import { Clock, FileText, User, Trash2, Edit } from "lucide-react"
 import { format } from "date-fns"
 import { useState } from "react"
-import type { Event } from "../../lib/mockData"
+import type { Event, Material } from "../../lib/types"
 import { useTranslations } from 'next-intl'
 
 interface EventDetailModalProps {

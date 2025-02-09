@@ -14,7 +14,7 @@ export default function Sidebar() {
   const { theme } = useTheme()
 
   const navItems = [
-    { icon: Home, label: t('nav.dashboard'), href: "/" },
+    { icon: Home, label: t('nav.dashboard'), href: "/dashboard" },
     { icon: Target, label: t('nav.goals'), href: "/goals" },
     { icon: Calendar, label: t('nav.events'), href: "/events" },
     { icon: Book, label: t('nav.materials'), href: "/materials" },

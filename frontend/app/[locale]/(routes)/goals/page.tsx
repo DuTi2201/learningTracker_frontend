@@ -1,7 +1,6 @@
 "use client"
 
-import { useState } from "react"
-import { goals as initialGoals } from "../../lib/mockData"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -11,6 +10,7 @@ import { GoalForm } from "../../components/goals/GoalForm"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useToast } from "@/hooks/use-toast"
 import { useTranslations } from 'next-intl'
+import { getGoals, createGoal, updateGoal, deleteGoal } from "../../lib/api"
 
 interface Goal {
   id: number
@@ -24,48 +24,104 @@ interface Goal {
 export default function Goals() {
   const [searchTerm, setSearchTerm] = useState("")
   const [filter, setFilter] = useState("all")
-  const [goals, setGoals] = useState<Goal[]>(initialGoals)
+  const [goals, setGoals] = useState<Goal[]>([])
+  const [isLoading, setIsLoading] = useState(true)
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [editingGoal, setEditingGoal] = useState<Goal | null>(null)
   const { toast } = useToast()
   const t = useTranslations()
+
+  useEffect(() => {
+    loadGoals()
+  }, [])
+
+  const loadGoals = async () => {
+    try {
+      const data = await getGoals()
+      setGoals(data)
+    } catch (error) {
+      toast({
+        title: t('goals.error.load'),
+        description: t('goals.error.loadDescription'),
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   const filteredGoals = goals.filter(
     (goal) =>
       goal.title.toLowerCase().includes(searchTerm.toLowerCase()) && (filter === "all" || goal.status === filter),
   )
 
-  const handleCreateGoal = (data: Omit<Goal, "id">) => {
-    const newGoal: Goal = {
-      id: Math.max(...goals.map((g) => g.id)) + 1,
-      ...data,
+  const handleCreateGoal = async (data: Omit<Goal, "id">) => {
+    try {
+      const createdGoal = await createGoal(data)
+      setGoals([...goals, createdGoal])
+      setIsFormOpen(false)
+      toast({
+        title: t('goals.created'),
+        description: t('goals.createSuccess'),
+      })
+    } catch (error) {
+      toast({
+        title: t('goals.error.create'),
+        description: t('goals.error.createDescription'),
+        variant: "destructive",
+      })
     }
-    setGoals([...goals, newGoal])
-    toast({
-      title: t('goals.created'),
-      description: t('goals.createSuccess'),
-    })
   }
 
-  const handleUpdateGoal = (data: Partial<Omit<Goal, "id">>) => {
-    if (!editingGoal) return
-    const updatedGoals = goals.map((goal) => 
-      goal.id === editingGoal.id ? { ...goal, ...data } : goal
-    )
-    setGoals(updatedGoals)
-    setEditingGoal(null)
-    toast({
-      title: t('goals.updated'),
-      description: t('goals.updateSuccess'),
-    })
-  }
+  const handleUpdateGoal = async (data: Partial<Omit<Goal, "id">>) => {
+    if (!editingGoal) return;
 
-  const handleDeleteGoal = (id: number) => {
-    setGoals(goals.filter((goal) => goal.id !== id))
-    toast({
-      title: t('goals.deleted'),
-      description: t('goals.deleteSuccess'),
-    })
+    try {
+      const updatedData = {
+        ...editingGoal,
+        ...data
+      };
+      
+      const updatedGoal = await updateGoal(editingGoal.id, updatedData);
+      
+      setGoals(prevGoals => 
+        prevGoals.map(goal => 
+          goal.id === editingGoal.id ? updatedGoal : goal
+        )
+      );
+      
+      setIsFormOpen(false);
+      setEditingGoal(null);
+      
+      toast({
+        title: t('goals.updated'),
+        description: t('goals.updateSuccess'),
+      });
+    } catch (error) {
+      console.error('Error updating goal:', error);
+      toast({
+        title: t('goals.error.update'),
+        description: t('goals.error.updateDescription'),
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleDeleteGoal = async (id: number) => {
+    try {
+      await deleteGoal(id)
+      setGoals(goals.filter((goal) => goal.id !== id))
+      toast({
+        title: t('goals.deleted'),
+        description: t('goals.deleteSuccess'),
+      })
+    } catch (error) {
+      toast({
+        title: t('goals.error.delete'),
+        description: t('goals.error.deleteDescription'),
+        variant: "destructive",
+      })
+    }
   }
 
   const getStatusText = (status: Goal["status"]) => {
