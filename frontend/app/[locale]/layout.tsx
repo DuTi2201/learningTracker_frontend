@@ -9,6 +9,7 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import { NextIntlClientProvider, AbstractIntlMessages, useMessages } from 'next-intl'
 import { locales, Locale } from '@/config/i18n'
 import Providers from "../providers"
+import { ChatBox } from "./components/ChatBox"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -61,6 +62,7 @@ export default function RootLayout({
                     </div>
                   </main>
                 </div>
+                <ChatBox />
               </div>
               <Toaster />
             </NextIntlClientProvider>

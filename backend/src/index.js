@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -14,6 +15,7 @@ const searchRoutes = require('./routes/searchRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
 const notificationRoutes = require('./routes/notificationRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const aiAssistantRoutes = require('./routes/aiAssistantRoutes');
 
 // Create Express app
 const app = express();
@@ -49,6 +51,7 @@ app.use('/api/search', searchRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/ai-assistant', aiAssistantRoutes);
 
 // Cron jobs
 // Chạy kiểm tra deadline mỗi giờ

@@ -239,5 +239,17 @@
     "assignments": "Bài tập",
     "goals": "Mục tiêu",
     "error": "Không thể thực hiện tìm kiếm"
+  },
+  "chat": {
+    "title": "Trợ lý học tập",
+    "inputPlaceholder": "Nhập câu hỏi của bạn...",
+    "send": "Gửi",
+    "error": "Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại sau.",
+    "minimize": "Thu nhỏ",
+    "maximize": "Phóng to",
+    "close": "Đóng",
+    "newChat": "Tạo hội thoại mới",
+    "history": "Lịch sử hội thoại",
+    "loading": "Đang suy nghĩ..."
   }
 } 

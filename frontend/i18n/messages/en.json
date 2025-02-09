@@ -180,5 +180,17 @@
       "months": "months ago",
       "years": "years ago"
     }
+  },
+  "chat": {
+    "title": "Learning Assistant",
+    "inputPlaceholder": "Type your question...",
+    "send": "Send",
+    "error": "Sorry, an error occurred. Please try again later.",
+    "minimize": "Minimize",
+    "maximize": "Maximize",
+    "close": "Close",
+    "newChat": "New Chat",
+    "history": "Chat History",
+    "loading": "Thinking..."
   }
 } 
