@@ -1,0 +1,1804 @@
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 8,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:31:36.449Z'
+}
+{
+  method: 'GET',
+  url: '/stats',
+  status: 304,
+  duration: 13,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:31:36.453Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:31:36.456Z'
+}
+{
+  method: 'GET',
+  url: '/stats',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:31:36.457Z'
+}
+{
+  method: 'POST',
+  url: '/chat',
+  status: 200,
+  duration: 1627,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:31:48.165Z'
+}
+{
+  method: 'GET',
+  url: '/stats',
+  status: 304,
+  duration: 7,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:31:49.379Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 20,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:32:37.190Z'
+}
+{
+  method: 'GET',
+  url: '/chats',
+  status: 200,
+  duration: 23,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:32:55.371Z'
+}
+{
+  method: 'GET',
+  url: '/chats',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:32:55.377Z'
+}
+{
+  method: 'GET',
+  url: '/chats',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:32:55.381Z'
+}
+{
+  method: 'GET',
+  url: '/chats/4',
+  status: 200,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:32:58.015Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:32:59.984Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:32:59.987Z'
+}
+{
+  method: 'GET',
+  url: '/stats',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:32:59.988Z'
+}
+{
+  method: 'GET',
+  url: '/stats',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:32:59.990Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:33:20.293Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:33:20.299Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:33:59.990Z'
+}
+{
+  method: 'POST',
+  url: '/chat',
+  status: 200,
+  duration: 2124,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:34:29.050Z'
+}
+{
+  method: 'GET',
+  url: '/stats',
+  status: 304,
+  duration: 6,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:34:47.527Z'
+}
+{
+  method: 'GET',
+  url: '/stats',
+  status: 304,
+  duration: 10,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:34:47.541Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:34:59.994Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:36:00.177Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:39:14.763Z'
+}
+{
+  method: 'GET',
+  url: '/stats',
+  status: 304,
+  duration: 7,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:39:14.766Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 5,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:39:14.769Z'
+}
+{
+  method: 'GET',
+  url: '/stats',
+  status: 304,
+  duration: 5,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:39:14.772Z'
+}
+{
+  method: 'GET',
+  url: '/stats',
+  status: 304,
+  duration: 10,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:39:44.570Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:40:15.158Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:40:41.295Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:40:41.323Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:40:41.325Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:40:41.333Z'
+}
+{
+  method: 'POST',
+  url: '/api/ai-assistant/messages',
+  status: 404,
+  duration: 7,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:41:21.550Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:41:41.344Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:41:49.639Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:41:49.647Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:41:49.648Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:41:49.651Z'
+}
+{
+  method: 'POST',
+  url: '/api/ai-assistant/messages',
+  status: 404,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:41:53.110Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:42:10.766Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:42:10.768Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:42:10.770Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:42:10.771Z'
+}
+{
+  method: 'GET',
+  url: '/chats',
+  status: 200,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:42:13.314Z'
+}
+{
+  method: 'GET',
+  url: '/chats/5',
+  status: 200,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:42:15.081Z'
+}
+{
+  method: 'POST',
+  url: '/api/ai-assistant/messages',
+  status: 404,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:42:20.807Z'
+}
+{
+  method: 'POST',
+  url: '/api/ai-assistant/messages',
+  status: 404,
+  duration: 5,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:42:37.799Z'
+}
+{
+  method: 'GET',
+  url: '/chats',
+  status: 304,
+  duration: 6,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:42:43.852Z'
+}
+{
+  method: 'POST',
+  url: '/api/ai-assistant/messages',
+  status: 404,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:42:48.239Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:43:11.208Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:44:11.213Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:45:11.204Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:45:18.759Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 5,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:45:18.762Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:45:18.763Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:45:18.766Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 500,
+  duration: 13,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:45:21.926Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:46:18.775Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:46:22.254Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:46:22.268Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:46:22.270Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:46:22.276Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 2665,
+  userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:46:28.559Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 500,
+  duration: 4253,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:46:45.087Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:47:23.190Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:48:23.212Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:48:43.469Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:48:43.476Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:48:43.479Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:48:43.481Z'
+}
+{
+  method: 'GET',
+  url: '/chats',
+  status: 200,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:48:46.132Z'
+}
+{
+  method: 'GET',
+  url: '/chats/8',
+  status: 200,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:48:47.060Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 500,
+  duration: 1551,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:48:52.761Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:49:44.199Z'
+}
+{
+  method: 'GET',
+  url: '/chats',
+  status: 200,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:50:04.046Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 500,
+  duration: 308,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:50:09.175Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:50:27.139Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 0,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:50:27.142Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:50:27.145Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:50:27.147Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 3342,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:50:33.846Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 11,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:51:15.547Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 2513,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:51:25.029Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:51:27.151Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:52:27.156Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 3619,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:52:32.687Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 2366,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:52:48.706Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:53:27.183Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:54:27.166Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:55:27.181Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:56:27.196Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 6,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:57:33.204Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 15,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:57:57.898Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 15,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:58:20.774Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 11,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:58:27.174Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:58:50.577Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:58:50.590Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:58:50.593Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:58:50.598Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 3719,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:59:00.615Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 9098,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:59:27.850Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 7,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T17:59:51.186Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:00:51.175Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:01:51.172Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:02:51.167Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 13,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:04:33.250Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 5,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:05:33.219Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:06:25.825Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 12,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:06:50.594Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:06:53.268Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:06:53.288Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:06:53.289Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:06:53.291Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:06:56.894Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 10183,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:07:17.488Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:07:54.130Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:08:24.608Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:08:24.610Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:08:30.505Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:08:54.134Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:09:07.818Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 10883,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:09:28.341Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:09:53.297Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 8059,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:10:12.621Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:10:27.016Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:10:46.677Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:10:53.297Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:10:54.358Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 3568,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:11:04.856Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:11:54.122Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 5,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:12:54.133Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 4723,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:13:23.639Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 5,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:13:28.405Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:13:28.407Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:13:54.130Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 17,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:15:33.196Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:15:54.143Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 3658,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:16:32.957Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 2439,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:16:42.775Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:16:53.281Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 3865,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:16:59.514Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 1289,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:17:12.100Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:17:20.043Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:17:20.055Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 0,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:17:20.056Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:17:20.060Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:17:46.583Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:17:50.445Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 7,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:17:50.455Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 5,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:18:20.162Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 5,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:19:20.124Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:20:20.107Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 2,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:21:20.105Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:21:39.896Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 5,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:21:39.898Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:21:39.899Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:21:39.900Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 3,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:21:42.351Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 3664,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:21:51.789Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 4,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:22:07.272Z'
+}
+{
+  method: 'GET',
+  url: '/',
+  status: 304,
+  duration: 0,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:22:07.273Z'
+}
+{
+  method: 'POST',
+  url: '/messages',
+  status: 200,
+  duration: 10195,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:22:11.491Z'
+}
+{
+  method: 'GET',
+  url: '/unread',
+  status: 304,
+  duration: 1,
+  userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
+  ip: '::1',
+  level: 'info',
+  message: 'Request completed',
+  timestamp: '2025-02-09T18:22:40.098Z'
+}

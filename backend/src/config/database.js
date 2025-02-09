@@ -105,6 +105,24 @@ const initDatabase = () => {
     retry_count INTEGER DEFAULT 0,
     last_retry_at TEXT
   )`);
+
+  // Chat history tables
+  db.run(`CREATE TABLE IF NOT EXISTS chat_history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT,
+    is_pinned INTEGER DEFAULT 0
+  )`);
+
+  db.run(`CREATE TABLE IF NOT EXISTS chat_messages (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    chat_id INTEGER,
+    role TEXT CHECK(role IN ('user', 'assistant')),
+    content TEXT,
+    timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (chat_id) REFERENCES chat_history(id) ON DELETE CASCADE
+  )`);
 };
 
 module.exports = db; 

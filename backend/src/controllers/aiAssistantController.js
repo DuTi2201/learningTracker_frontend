@@ -1,8 +1,44 @@
 require('dotenv').config();
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+const ChatHistory = require('../models/ChatHistory');
+const ChatMessage = require('../models/ChatMessage');
+const Event = require('../models/Event');
+const Assignment = require('../models/Assignment');
+const Material = require('../models/Material');
+const Goal = require('../models/Goal');
+const db = require('../config/database');
+const { v4: uuidv4 } = require('uuid');
 
 // Lấy API key từ biến môi trường
 const API_KEY = process.env.GEMINI_API_KEY;
+
+// Kiểm tra và tạo bảng nếu chưa tồn tại
+const ensureTablesExist = async () => {
+  return new Promise((resolve, reject) => {
+    db.run(`CREATE TABLE IF NOT EXISTS chat_history (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT,
+      is_pinned INTEGER DEFAULT 0
+    )`, (err) => {
+      if (err) reject(err);
+      else {
+        db.run(`CREATE TABLE IF NOT EXISTS chat_messages (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          chat_id INTEGER,
+          role TEXT CHECK(role IN ('user', 'assistant')),
+          content TEXT,
+          timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
+          FOREIGN KEY (chat_id) REFERENCES chat_history(id) ON DELETE CASCADE
+        )`, (err) => {
+          if (err) reject(err);
+          else resolve();
+        });
+      }
+    });
+  });
+};
 
 // Kiểm tra API key
 if (!API_KEY) {
@@ -21,83 +57,534 @@ const DEFAULT_CONFIG = {
 };
 
 // Prompt mẫu cho trợ lý học tập
-const SYSTEM_PROMPT = `Bạn là một trợ lý học tập thông minh với những đặc điểm sau:
-- Trả lời bằng tiếng Việt rõ ràng, dễ hiểu
-- Tập trung vào việc giải thích các khái niệm một cách đơn giản
-- Đưa ra ví dụ thực tế khi cần thiết
-- Khuyến khích tư duy phản biện và học tập chủ động
-- Hỗ trợ người dùng tìm ra câu trả lời thay vì đưa ra đáp án trực tiếp`;
+const SYSTEM_PROMPT = `Bạn là một trợ lý học tập thông minh, có khả năng tương tác trực tiếp với hệ thống quản lý học tập. Bạn có thể:
 
-exports.chat = async (req, res) => {
+1. Tạo và quản lý lịch học:
+- Khi người dùng yêu cầu "lên lịch học", hãy hỏi tiêu đề lịch học
+- Khi nhận được tiêu đề, tạo lịch học thông minh dựa trên tiêu đề đó
+- KHÔNG lặp lại câu hỏi về tiêu đề nếu đã nhận được
+
+2. Quản lý bài tập:
+- Khi người dùng yêu cầu tạo bài tập mới, hỏi các thông tin cần thiết
+- Lưu ý các thông tin quan trọng như deadline, môn học
+- KHÔNG lặp lại câu hỏi nếu thông tin đã được cung cấp
+
+3. Quản lý tài liệu:
+- Khi người dùng yêu cầu thêm tài liệu mới, hỏi các thông tin cần thiết
+- Lưu ý các thông tin như tiêu đề, mô tả, loại tài liệu
+- KHÔNG lặp lại câu hỏi nếu thông tin đã được cung cấp
+
+4. Phong cách tương tác:
+- Trả lời ngắn gọn, rõ ràng khi xử lý các yêu cầu CRUD
+- Chỉ đưa ra các gợi ý và chia sẻ kinh nghiệm khi được yêu cầu
+- Tập trung vào việc hoàn thành yêu cầu của người dùng
+
+5. Xử lý thông tin:
+- Phân tích kỹ nội dung tin nhắn để tránh hỏi lại thông tin đã có
+- Lưu trữ context để theo dõi tiến trình tương tác
+- Xác nhận lại với người dùng trước khi thực hiện các thao tác quan trọng`;
+
+exports.getChats = async (req, res) => {
   try {
-    const { message, context = [] } = req.body;
-
-    console.log('Sending request to Gemini API with message:', message);
-
-    // Khởi tạo model với cấu hình
-    const model = genAI.getGenerativeModel({ 
-      model: 'gemini-pro',
-      ...DEFAULT_CONFIG
-    });
-
-    // Tạo chat history từ context, bỏ qua system prompt
-    const history = context.map(msg => ({
-      role: msg.role === 'user' ? 'user' : 'model',
-      parts: msg.content,
-    }));
-
-    // Tạo chat và thêm system prompt vào tin nhắn đầu tiên
-    const chat = model.startChat({
-      history: [],
-      generationConfig: DEFAULT_CONFIG,
-    });
-
-    // Gửi system prompt như một phần của tin nhắn người dùng
-    const userMessage = `${SYSTEM_PROMPT}\n\nUser: ${message}`;
-    const result = await chat.sendMessage(userMessage);
-    const response = await result.response;
-    const text = response.text();
-
-    console.log('Gemini API response:', response);
-
-    const aiResponse = {
-      reply: text,
-      context: [
-        ...context,
-        { role: 'user', content: message },
-        { role: 'assistant', content: text }
-      ]
-    };
-
-    console.log('Sending response to client:', aiResponse);
-    res.json(aiResponse);
-
+    const chats = await ChatHistory.getAll();
+    res.json(chats);
   } catch (error) {
-    console.error('AI Assistant Error:', {
-      name: error.name,
-      message: error.message,
-      stack: error.stack
-    });
-
-    // Xử lý các lỗi cụ thể
-    if (error.message.includes('API key')) {
-      res.status(401).json({
-        error: 'Invalid API key',
-        details: { message: 'Please check your Gemini API key configuration' }
-      });
-    } else if (error.message.includes('quota')) {
-      res.status(429).json({
-        error: 'API quota exceeded',
-        details: { message: 'Please try again later' }
-      });
-    } else {
-      res.status(500).json({
-        error: 'Failed to get response from AI Assistant',
-        details: { message: error.message }
-      });
-    }
+    console.error('Error getting chats:', error);
+    res.status(500).json({ error: 'Failed to get chats' });
   }
 };
+
+exports.getChatById = async (req, res) => {
+  try {
+    const chat = await ChatHistory.getById(req.params.id);
+    if (!chat) {
+      return res.status(404).json({ error: 'Chat not found' });
+    }
+    const messages = await ChatMessage.getMessagesByChatId(req.params.id);
+    res.json({ ...chat, messages });
+  } catch (error) {
+    console.error('Error getting chat:', error);
+    res.status(500).json({ error: 'Failed to get chat' });
+  }
+};
+
+exports.createChat = async (req, res) => {
+  try {
+    const { title } = req.body;
+    const chat = await ChatHistory.create(title || 'New Chat');
+    res.status(201).json(chat);
+  } catch (error) {
+    console.error('Error creating chat:', error);
+    res.status(500).json({ error: 'Failed to create chat' });
+  }
+};
+
+exports.deleteChat = async (req, res) => {
+  try {
+    await ChatHistory.delete(req.params.id);
+    res.status(204).send();
+  } catch (error) {
+    console.error('Error deleting chat:', error);
+    res.status(500).json({ error: 'Failed to delete chat' });
+  }
+};
+
+exports.togglePinChat = async (req, res) => {
+  try {
+    await ChatHistory.togglePin(req.params.id);
+    res.status(200).json({ message: 'Chat pin status updated' });
+  } catch (error) {
+    console.error('Error toggling chat pin:', error);
+    res.status(500).json({ error: 'Failed to toggle chat pin' });
+  }
+};
+
+exports.searchChats = async (req, res) => {
+  try {
+    const { query } = req.query;
+    const chats = await ChatHistory.search(query);
+    res.json(chats);
+  } catch (error) {
+    console.error('Error searching chats:', error);
+    res.status(500).json({ error: 'Failed to search chats' });
+  }
+};
+
+// Cập nhật phương thức chat hiện có
+exports.chat = async (req, res) => {
+  try {
+    const { message, context } = req.body;
+    
+    if (!message) {
+      return res.status(400).json({ error: 'Message is required' });
+    }
+    
+    // Xử lý tin nhắn với context
+    const response = await processWithAI(message, context);
+    
+    res.json({
+      message: response.message,
+      context: response.context
+    });
+  } catch (error) {
+    console.error('Error in chat:', error);
+    res.status(500).json({ 
+      error: 'Failed to process chat',
+      details: error.message 
+    });
+  }
+};
+
+// Hàm kiểm tra và phân loại nội dung nhạy cảm
+function analyzeContentSensitivity(message) {
+  const categories = {
+    sexual: ['nứng', 'dâm', 'sex', 'địt', 'lồn', 'cặc', 'buồi', 'đụ'],
+    profanity: ['fuck', 'dick', 'pussy', 'porn', 'xxx'],
+    harassment: ['đồ ngu', 'ngu như chó', 'óc lợn', 'mẹ mày'],
+    hate_speech: ['đồ điên', 'thần kinh', 'tâm thần', 'khùng']
+  };
+
+  const normalizedMessage = message.toLowerCase();
+  
+  for (const [category, words] of Object.entries(categories)) {
+    if (words.some(word => normalizedMessage.includes(word))) {
+      return {
+        isSensitive: true,
+        category: category,
+        suggestion: getEducationalResponse(category)
+      };
+    }
+  }
+  
+  return { isSensitive: false };
+}
+
+// Hàm tạo phản hồi mang tính giáo dục
+function getEducationalResponse(category) {
+  const responses = {
+    sexual: `Tôi hiểu bạn có thể đang gặp những thắc mắc về vấn đề sinh lý. Đây là chủ đề nhạy cảm cần được thảo luận một cách nghiêm túc và tôn trọng. Tôi gợi ý bạn:
+- Tham khảo ý kiến chuyên gia y tế hoặc tâm lý
+- Tìm hiểu qua các nguồn thông tin giáo dục giới tính uy tín
+- Thảo luận với người lớn đáng tin cậy
+
+Bạn có muốn tôi giới thiệu một số website giáo dục giới tính phù hợp không?`,
+
+    profanity: `Tôi nhận thấy bạn đang sử dụng ngôn ngữ thiếu tích cực. Giao tiếp văn minh và tôn trọng sẽ giúp:
+- Xây dựng các mối quan hệ tốt đẹp
+- Thể hiện sự trưởng thành và chuyên nghiệp
+- Tạo môi trường học tập lành mạnh
+
+Hãy chia sẻ với tôi điều bạn thực sự muốn bày tỏ nhé?`,
+
+    harassment: `Tôi cảm nhận được bạn đang có cảm xúc tiêu cực với ai đó. Thay vì sử dụng lời lẽ gây tổn thương, chúng ta có thể:
+- Thảo luận vấn đề một cách bình tĩnh
+- Tìm hiểu nguyên nhân sâu xa
+- Đề xuất giải pháp xây dựng
+
+Bạn muốn chia sẻ điều gì đang khiến bạn khó chịu không?`,
+
+    hate_speech: `Tôi thấy bạn đang có định kiến hoặc thành kiến với một số người. Để xây dựng một cộng đồng tốt đẹp, chúng ta nên:
+- Tôn trọng sự đa dạng của mọi người
+- Thấu hiểu hoàn cảnh của người khác
+- Sử dụng ngôn từ tích cực và xây dựng
+
+Bạn có muốn tìm hiểu thêm về cách giao tiếp tích cực không?`
+  };
+
+  return responses[category] || 'Hãy cùng trao đổi với thái độ tôn trọng và xây dựng nhé.';
+}
+
+// Hàm phân tích yêu cầu CRUD
+async function analyzeCRUDRequest(message) {
+  // Phân tích yêu cầu liên quan đến lịch học
+  if (message.toLowerCase().includes('lịch học') || message.toLowerCase().includes('lên lịch')) {
+    return {
+      type: 'schedule',
+      action: 'create',
+      requiredFields: ['title', 'description', 'start_time', 'end_time', 'instructor'],
+      missingFields: []
+    };
+  }
+  
+  // Phân tích yêu cầu liên quan đến mục tiêu
+  if (message.toLowerCase().includes('mục tiêu') || message.toLowerCase().includes('target')) {
+    return {
+      type: 'goal',
+      action: 'create',
+      requiredFields: ['title', 'description', 'deadline', 'priority', 'status'],
+      missingFields: []
+    };
+  }
+  
+  // Phân tích yêu cầu liên quan đến bài tập
+  if (message.toLowerCase().includes('bài tập') || message.toLowerCase().includes('assignment')) {
+    return {
+      type: 'assignment',
+      action: 'create', 
+      requiredFields: ['title', 'description', 'deadline', 'status'],
+      missingFields: []
+    };
+  }
+  
+  return null;
+}
+
+// Hàm tạo câu hỏi để lấy thông tin còn thiếu
+function generateQuestions(crudRequest) {
+  const questions = {
+    schedule: {
+      title: 'Bạn muốn đặt tiêu đề gì cho lịch học này?',
+      description: 'Bạn có muốn thêm mô tả chi tiết không?',
+      start_time: 'Thời gian bắt đầu là khi nào?',
+      end_time: 'Thời gian kết thúc là khi nào?',
+      instructor: 'Giảng viên/người hướng dẫn là ai?'
+    },
+    goal: {
+      title: 'Bạn muốn đặt tiêu đề gì cho mục tiêu này?',
+      description: 'Bạn có thể mô tả chi tiết mục tiêu không?',
+      deadline: 'Bạn muốn hoàn thành mục tiêu này vào khi nào?',
+      priority: 'Mức độ ưu tiên của mục tiêu này là gì (cao/trung bình/thấp)?',
+      status: 'Trạng thái hiện tại của mục tiêu là gì (chưa bắt đầu/đang thực hiện/hoàn thành)?'
+    },
+    assignment: {
+      title: 'Bạn muốn đặt tiêu đề gì cho bài tập này?',
+      description: 'Bạn có thể mô tả chi tiết bài tập không?',
+      deadline: 'Thời hạn nộp bài tập là khi nào?',
+      status: 'Trạng thái hiện tại của bài tập là gì (chưa bắt đầu/đang làm/hoàn thành)?'
+    }
+  };
+  
+  return questions[crudRequest.type];
+}
+
+// Hàm tạo xác nhận từ người dùng
+function generateConfirmation(data, type) {
+  let confirmation = 'Tôi sẽ tạo ';
+  
+  switch (type) {
+    case 'schedule':
+      confirmation += `lịch học "${data.title}" từ ${data.start_time} đến ${data.end_time}`;
+      if (data.instructor) confirmation += ` với giảng viên ${data.instructor}`;
+      break;
+      
+    case 'goal':
+      confirmation += `mục tiêu "${data.title}" với deadline ${data.deadline}`;
+      confirmation += `\nĐộ ưu tiên: ${data.priority}`;
+      confirmation += `\nTrạng thái: ${data.status}`;
+      break;
+      
+    case 'assignment':
+      confirmation += `bài tập "${data.title}" với deadline ${data.deadline}`;
+      confirmation += `\nTrạng thái: ${data.status}`;
+      break;
+  }
+  
+  confirmation += '\n\nBạn có đồng ý không? (Có/Không)';
+  return confirmation;
+}
+
+// Hàm phân tích thời gian từ văn bản
+function parseTimeFromText(text) {
+  const now = new Date();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  
+  // Xử lý "ngày mai"
+  if (text.toLowerCase().includes('ngày mai')) {
+    return tomorrow;
+  }
+  
+  // Xử lý giờ cụ thể
+  const timeMatch = text.match(/(\d{1,2})[h:]\s*(\d{1,2})?/);
+  if (timeMatch) {
+    const hours = parseInt(timeMatch[1]);
+    const minutes = timeMatch[2] ? parseInt(timeMatch[2]) : 0;
+    const date = new Date(tomorrow);
+    date.setHours(hours, minutes, 0, 0);
+    return date;
+  }
+  
+  return null;
+}
+
+// Hàm tạo lịch học thông minh
+async function createIntelligentSchedule(title, description = '') {
+  try {
+    // Phân tích tiêu đề để tạo lịch học phù hợp
+    const schedule = {
+      title,
+      description,
+      events: []
+    };
+
+    // Nếu là ôn tập chung, tạo lịch học theo phương pháp Pomodoro
+    if (title.toLowerCase().includes('ôn tập chung')) {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      
+      // Buổi sáng
+      schedule.events.push({
+        id: uuidv4(),
+        title: 'Ôn tập - Phiên 1',
+        description: 'Ôn tập tập trung (25 phút) + Nghỉ giải lao (5 phút) x 2',
+        start: new Date(tomorrow.setHours(8, 0, 0, 0)),
+        end: new Date(tomorrow.setHours(9, 0, 0, 0))
+      });
+      
+      schedule.events.push({
+        id: uuidv4(),
+        title: 'Ôn tập - Phiên 2',
+        description: 'Ôn tập tập trung (25 phút) + Nghỉ giải lao (5 phút) x 2',
+        start: new Date(tomorrow.setHours(9, 30, 0, 0)),
+        end: new Date(tomorrow.setHours(10, 30, 0, 0))
+      });
+      
+      // Buổi chiều
+      schedule.events.push({
+        id: uuidv4(),
+        title: 'Ôn tập - Phiên 3',
+        description: 'Ôn tập tập trung (25 phút) + Nghỉ giải lao (5 phút) x 2',
+        start: new Date(tomorrow.setHours(14, 0, 0, 0)),
+        end: new Date(tomorrow.setHours(15, 0, 0, 0))
+      });
+      
+      schedule.events.push({
+        id: uuidv4(),
+        title: 'Ôn tập - Phiên 4',
+        description: 'Ôn tập tập trung (25 phút) + Nghỉ giải lao (5 phút) x 2',
+        start: new Date(tomorrow.setHours(15, 30, 0, 0)),
+        end: new Date(tomorrow.setHours(16, 30, 0, 0))
+      });
+    }
+    
+    // Tạo các sự kiện trong CSDL
+    const createdEvents = [];
+    for (const event of schedule.events) {
+      const result = await Event.create(event);
+      createdEvents.push(result);
+    }
+    
+    return {
+      success: true,
+      schedule,
+      events: createdEvents
+    };
+  } catch (error) {
+    console.error('Error creating intelligent schedule:', error);
+    throw error;
+  }
+}
+
+// Cập nhật hàm processWithAI
+async function processWithAI(message, context = {}) {
+  try {
+    // Phân tích yêu cầu CRUD
+    const crudRequest = await analyzeCRUDRequest(message);
+    
+    if (crudRequest) {
+      // Nếu là yêu cầu tạo lịch học cụ thể
+      if (crudRequest.type === 'schedule' && message.toLowerCase().includes('giờ')) {
+        // Phân tích thời gian từ tin nhắn
+        const timeInfo = parseTimeFromText(message);
+        if (timeInfo) {
+          // Tạo sự kiện trong CSDL
+          const eventData = {
+            id: uuidv4(),
+            title: message.toLowerCase().includes('đi học') ? 'Đi học' : 'Lịch học',
+            start: timeInfo,
+            end: new Date(timeInfo.getTime() + 2 * 60 * 60 * 1000), // Mặc định 2 tiếng
+            description: 'Được tạo tự động từ trợ lý học tập'
+          };
+
+          try {
+            const createdEvent = await Event.create(eventData);
+            return {
+              message: `Đã tạo lịch học "${eventData.title}" vào ${timeInfo.toLocaleTimeString()} ngày ${timeInfo.toLocaleDateString()}. Bạn có muốn tôi thêm thông tin nào khác không?`,
+              context: {
+                type: 'schedule',
+                event: createdEvent,
+                confirming: false
+              }
+            };
+          } catch (error) {
+            console.error('Error creating event:', error);
+            return {
+              message: 'Xin lỗi, đã có lỗi khi tạo lịch học. Vui lòng thử lại sau.',
+              context: null
+            };
+          }
+        }
+      }
+      
+      // Nếu là yêu cầu tạo lịch ôn tập
+      if (crudRequest.type === 'schedule' && message.toLowerCase().includes('ôn tập')) {
+        const result = await createIntelligentSchedule(message);
+        if (result.success) {
+          return {
+            message: `Tôi đã tạo lịch học thông minh cho bạn:
+            
+${result.schedule.events.map(event => `
+- ${event.title}
+  Thời gian: ${new Date(event.start).toLocaleTimeString()} - ${new Date(event.end).toLocaleTimeString()}
+  ${event.description}
+`).join('\n')}
+
+Lịch học này đã được thêm vào hệ thống. Bạn có muốn điều chỉnh gì không?`,
+            context: {
+              type: 'schedule',
+              schedule: result.schedule,
+              confirming: false
+            }
+          };
+        }
+      }
+      
+      // Nếu là yêu cầu tạo bài tập và đã có thông tin đầy đủ
+      if (crudRequest.type === 'assignment' && message.toLowerCase().includes('bài tập') && message.toLowerCase().includes('deadline')) {
+        const assignmentInfo = {
+          title: message.split(',')[0].replace('bài tập', '').trim(),
+          deadline: message.split('deadline')[1].trim(),
+          status: 'not_started',
+          description: 'Được tạo tự động từ trợ lý học tập'
+        };
+        
+        try {
+          const createdAssignment = await Assignment.create(assignmentInfo);
+          return {
+            message: `Đã tạo bài tập "${assignmentInfo.title}" với deadline ${assignmentInfo.deadline}. Bạn có muốn thêm mô tả chi tiết không?`,
+            context: {
+              type: 'assignment',
+              assignment: createdAssignment,
+              confirming: false
+            }
+          };
+        } catch (error) {
+          console.error('Error creating assignment:', error);
+          return {
+            message: 'Xin lỗi, đã có lỗi khi tạo bài tập. Vui lòng thử lại sau.',
+            context: null
+          };
+        }
+      }
+      
+      // Xử lý các trường hợp khác như cũ
+      if (context.collecting) {
+        context.data[context.currentField] = message;
+        const missingFields = crudRequest.requiredFields.filter(
+          field => !context.data[field]
+        );
+        
+        if (missingFields.length > 0) {
+          const questions = generateQuestions(crudRequest);
+          context.currentField = missingFields[0];
+          return {
+            message: questions[missingFields[0]],
+            context: {
+              ...context,
+              collecting: true
+            }
+          };
+        } else {
+          return {
+            message: generateConfirmation(context.data, crudRequest.type),
+            context: {
+              ...context,
+              collecting: false,
+              confirming: true
+            }
+          };
+        }
+      }
+      
+      // Bắt đầu thu thập thông tin nếu chưa đủ
+      const questions = generateQuestions(crudRequest);
+      const firstField = crudRequest.requiredFields[0];
+      
+      return {
+        message: questions[firstField],
+        context: {
+          type: crudRequest.type,
+          collecting: true,
+          currentField: firstField,
+          data: {}
+        }
+      };
+    }
+    
+    // Xử lý các yêu cầu không phải CRUD
+    const genAI = new GoogleGenerativeAI(API_KEY);
+    const model = genAI.getGenerativeModel({ 
+      model: 'gemini-pro',
+      generationConfig: DEFAULT_CONFIG
+    });
+    
+    const chat = model.startChat({
+      history: [
+        {
+          role: 'user',
+          parts: [{text: SYSTEM_PROMPT}]
+        },
+        {
+          role: 'model',
+          parts: [{text: 'Tôi đã hiểu. Tôi sẽ trả lời bằng tiếng Việt và tuân theo các yêu cầu của bạn.'}]
+        }
+      ]
+    });
+    
+    const result = await chat.sendMessage(message);
+    const response = await result.response;
+    return {
+      message: response.text(),
+      context: null
+    };
+  } catch (error) {
+    console.error('Error in processWithAI:', error);
+    return {
+      message: 'Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại sau.',
+      context: null
+    };
+  }
+}
 
 // Hàm phân tích dữ liệu học tập
 async function analyzeUserProgress() {

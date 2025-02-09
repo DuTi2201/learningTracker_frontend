@@ -5,6 +5,7 @@ const path = require('path');
 const fileUpload = require('express-fileupload');
 const cron = require('node-cron');
 const NotificationService = require('./services/notificationService');
+const logger = require('./services/logger');
 
 // Import routes
 const materialRoutes = require('./routes/materialRoutes');
@@ -16,6 +17,7 @@ const uploadRoutes = require('./routes/uploadRoutes');
 const notificationRoutes = require('./routes/notificationRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const aiAssistantRoutes = require('./routes/aiAssistantRoutes');
+const healthRoutes = require('./routes/healthRoutes');
 
 // Create Express app
 const app = express();
@@ -23,9 +25,9 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'http://localhost:3001'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
   optionsSuccessStatus: 200
 }));
@@ -42,6 +44,10 @@ app.use(fileUpload({
 // Serve static files from uploads directory
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+// Add logging middleware
+app.use(logger.logRequest);
+app.use(logger.logError);
+
 // Routes
 app.use('/api/materials', materialRoutes);
 app.use('/api/events', eventRoutes);
@@ -52,6 +58,7 @@ app.use('/api/upload', uploadRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/ai-assistant', aiAssistantRoutes);
+app.use('/health', healthRoutes);
 
 // Cron jobs
 // Chạy kiểm tra deadline mỗi giờ
